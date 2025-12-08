@@ -1,0 +1,833 @@
+/* ============================================== */
+/* 00. IMPORTATION ET VARIABLES CSS */
+/* ============================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap');
+
+:root {
+    /* Couleurs basées sur l'image (Champignons/Bois) */
+    --couleur-fond-clair: #FCFCFC;     /* Blanc cassé très propre */
+    --couleur-texte-sombre: #1A1A1A;    /* Noir profond pour le texte principal (Logo) */
+    --couleur-primaire: #8B4513;        /* Brun Sienne (Terre/Bois) */
+    --couleur-secondaire: #A0522D;      /* Marron clair/chaud (Chapeau du champignon) */
+    --couleur-tertiaire: #38761D;       /* Vert Forêt (Utilisé pour les accents) */
+    --couleur-accent: #E0BAA3;          /* Beige clair/pâle pour les séparateurs ou fonds */
+    --couleur-bordure: #CCCCCC;
+
+    --font-principale: 'Poppins', sans-serif;
+    --font-secondaire: 'Georgia', serif; 
+}
+
+
+/* ============================================== */
+/* 01. RÉINITIALISATION ET GÉNÉRALITÉS */
+/* ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+}
+
+body {
+    font-family: var(--font-principale);
+    line-height: 1.7;
+    background-color: var(--couleur-fond-clair);
+    color: var(--couleur-texte-sombre);
+    font-size: 16px;
+    
+    /* SUPPRIMÉ : padding-top car l'entête n'est plus fixe */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Liens génériques */
+a {
+    color: var(--couleur-secondaire);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--couleur-primaire);
+}
+
+
+/* ============================================== */
+/* 02. TYPOGRAPHIE ET TITRES */
+/* ============================================== */
+
+h1, h2, h3, h4 {
+    font-family: var(--font-secondaire);
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--couleur-texte-sombre);
+}
+
+h2 {
+    font-size: 2.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 5px;
+    /* Ligne Brun Sienne sous les titres de section */
+    border-bottom: 2px solid var(--couleur-primaire);
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+
+/* ============================================== */
+/* 03. EN-TÊTE ET NAVIGATION (HEADER & NAV) - NON FIXE */
+/* ============================================== */
+
+header {
+    background-color: var(--couleur-fond-clair);
+    /* Les styles 'position: fixed', 'top', 'left', 'z-index' sont retirés */
+    width: 100%; 
+    padding: 15px 0;
+    /* Bordure noire et fine */
+    border-bottom: 1px solid var(--couleur-texte-sombre); 
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- CONTENEUR LOGO + TEXTE --- */
+.logo-and-text-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo-image-left {
+    margin: 0;
+    padding: 0;
+    margin-right: 20px;
+}
+
+.logo {
+    max-height: 85px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- STYLES DU TEXTE DU LOGO --- */
+.logo-text-header {
+    text-align: left;
+}
+
+.logo-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--couleur-texte-sombre);
+    margin: 0 0 5px 0;
+    line-height: 1.1;
+}
+
+.logo-slogan-line {
+    font-family: var(--font-principale);
+    font-size: 0.9em;
+    font-weight: 400;
+    color: var(--couleur-texte-sombre);
+    line-height: 1.3;
+    margin-bottom: 0;
+}
+
+/* --- STYLES DE LA NAVIGATION --- */
+nav {
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0;
+    padding: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--couleur-texte-sombre);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+    padding: 8px 15px;
+    border: 1px solid var(--couleur-texte-sombre);
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: white;
+    background-color: var(--couleur-texte-sombre);
+    border-color: var(--couleur-texte-sombre);
+}
+
+
+/* ============================================== */
+/* 04. BOUTONS (Appel à l'action) */
+/* ============================================== */
+
+.btn {
+    display: inline-block;
+    background-color: var(--couleur-primaire);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid var(--couleur-primaire);
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: var(--couleur-secondaire);
+    border-color: var(--couleur-secondaire);
+}
+
+.small-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+/* Style spécifique au bouton WhatsApp */
+.whatsapp-btn {
+    background-color: #25D366; /* Vert WhatsApp */
+    border-color: #25D366;
+    color: white;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    padding: 15px 30px;
+}
+
+.whatsapp-btn:hover {
+    background-color: #1DA851; 
+}
+
+/* ============================================== */
+/* 05. SECTIONS GÉNÉRALES */
+/* ============================================== */
+
+section {
+    padding: 80px 0;
+    text-align: center;
+    min-height: auto;
+    display: block;
+}
+
+#accueil {
+    /* Suppression du padding-top car il n'y a plus de header fixe */
+    padding-top: 80px; /* Conserve le padding normal de la section */
+}
+
+/* Couleurs de fond alternées */
+#accueil, #atelier, #contact-info {
+    background-color: var(--couleur-fond-clair);
+}
+
+#bougies, #apropos, #contact-map, #mentions-legales {
+    background-color: var(--couleur-accent);
+}
+
+
+/* ============================================== */
+/* 06. PIED DE PAGE (FOOTER) */
+/* ============================================== */
+
+footer {
+    background-color: var(--couleur-texte-sombre);
+    color: var(--couleur-fond-clair);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+footer a {
+    color: var(--couleur-accent);
+    text-decoration: none;
+}
+
+/* STYLES DES LIENS SOCIAUX */
+.social-links {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 1.8em;
+    text-align: center;
+    margin: 0 8px;
+    color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+/* Couleurs de marque spécifiques */
+.social-links a[href*="facebook"] {
+    background-color: #3b5998;
+}
+
+.social-links a[href*="instagram"] {
+    background-color: #C13584;
+}
+
+.social-links a.whatsapp-link {
+    background-color: #25D366;
+}
+
+/* TIKTOK */
+.social-links a.tiktok-link {
+    background-color: #000000;
+}
+
+.social-links a.tiktok-link i {
+    color: white;
+}
+
+/* Hover commun */
+.social-links a:hover {
+    background-color: var(--couleur-primaire);
+}
+
+
+/* ============================================== */
+/* 07. STYLES SPÉCIFIQUES À L'ACCUEIL */
+/* ============================================== */
+
+/* Section Héros */
+#hero {
+    background: url('images/hero-home.png') no-repeat center center/cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+#hero p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Section Présentation Produits */
+.produits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.produit-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.produit-card:hover {
+    transform: translateY(-5px);
+}
+
+.produit-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.produit-card-content {
+    padding: 20px;
+}
+
+.produit-card-content h3 {
+    color: var(--couleur-primaire);
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.produit-card .btn {
+    margin-top: 15px;
+}
+
+
+/* ============================================== */
+/* 08. STYLES SPÉCIFIQUES À À PROPOS */
+/* ============================================== */
+
+.dedicace {
+    font-style: italic;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 700px;
+    border: 1px dashed var(--couleur-secondaire); 
+    background-color: var(--couleur-fond-clair);
+    border-radius: 5px;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+/* Article de presse */
+.article-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.article-image {
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-text-summary {
+    width: 60%;
+}
+
+.article-text-summary h3 {
+    color: var(--couleur-tertiaire);
+    font-size: 1.3rem;
+}
+
+
+/* ============================================== */
+/* 09. STYLES SPÉCIFIQUES AUX BOUGIES */
+/* ============================================== */
+
+.bougie-hero-img {
+    display: block;
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    margin: 30px auto 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.caracteristiques-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.caracteristiques-grid article {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--couleur-primaire);
+}
+
+.caracteristiques-grid article h4 {
+    color: var(--couleur-primaire);
+    font-size: 1.15rem;
+    margin-top: 0;
+}
+
+.caracteristiques-grid article i {
+    color: var(--couleur-tertiaire);
+    margin-right: 10px;
+}
+
+/* Style de la liste des conseils */
+.conseils-list {
+    list-style: none;
+    max-width: 700px;
+    margin: 20px auto 40px auto;
+    text-align: left;
+    padding-left: 0;
+}
+
+.conseils-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--couleur-bordure);
+}
+
+.conseils-list li:last-child {
+    border-bottom: none;
+}
+
+.large-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    display: block;
+    width: fit-content;
+    margin: 40px auto;
+}
+
+/* --- AJOUT DES STYLES POUR LA PRÉSENTATION SIMPLIFIÉE DES BOUGIES (TARIFS/TAILLES) --- */
+
+/* Conteneur principal des images - Centre l'ensemble */
+.bougies-images-grid {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 800px; /* Limite la largeur du bloc pour éviter des images gigantesques */
+}
+
+/* Image des tarifs (prend toute la largeur du conteneur bougies-images-grid) */
+.tarifs-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Wrapper des 3 images de taille (pour les aligner horizontalement) */
+.tailles-wrapper {
+    display: flex;
+    justify-content: space-around; 
+    gap: 15px; 
+    margin-top: 20px;
+}
+
+/* Style des 3 images de taille (Petite, Moyenne, Grande) */
+.taille-image {
+    width: 30%; /* Pour une répartition sur la ligne */
+    max-width: 250px; /* Limite maximale individuelle (empêche un étirement excessif) */
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================== */
+/* 10. STYLES SPÉCIFIQUES À L'ATELIER */
+/* ============================================== */
+
+/* Grille d'images pour l'introduction de l'atelier */
+.atelier-images-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, auto);
+    gap: 15px;
+    margin: 40px auto;
+    max-width: 900px;
+}
+
+.atelier-img-large {
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.atelier-img-small {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Grille des étapes de création */
+.creation-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.step-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.step-card i {
+    font-size: 2.5rem;
+    color: var(--couleur-tertiaire);
+    margin-bottom: 15px;
+}
+
+.step-card h3 {
+    color: var(--couleur-primaire);
+    font-size: 1.25rem;
+    margin-top: 0;
+}
+
+/* Détails de l'engagement éthique */
+.demarche-details {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.demarche-details article {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid var(--couleur-bordure);
+    border-radius: 8px;
+}
+
+.demarche-details h3 {
+    font-size: 1.2rem;
+    color: var(--couleur-texte-sombre);
+}
+
+
+/* ============================================== */
+/* 11. STYLES SPÉCIFIQUES À CONTACT ET LÉGALES */
+/* ============================================== */
+
+.intro-contact {
+    font-size: 1.15rem;
+    color: var(--couleur-texte-sombre);
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Mise en page en 2 colonnes pour les grands écrans */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 40px auto;
+    text-align: left;
+    max-width: 1000px;
+    align-items: stretch;
+}
+
+/* Styles pour les deux colonnes (Card Style) */
+.contact-image-wrapper, .contact-info-map {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Styles de l'Image de Contact */
+.contact-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-image {
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+
+/* Styles pour le bloc d'information et la carte */
+.contact-info-map {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info-map p {
+    line-height: 2.2;
+}
+
+.contact-info-map i {
+    color: var(--couleur-primaire);
+    margin-right: 10px;
+    width: 15px;
+}
+
+.map-container {
+    margin-top: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* S'assurer que l'iframe remplit l'espace */
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    display: block;
+    margin-top: 10px;
+}
+
+/* ============================================== */
+/* 12. RESPONSIVE GÉNÉRAL ET MEDIA QUERIES */
+/* ============================================== */
+
+@media (max-width: 992px) {
+    /* Responsive pour la page À Propos */
+    .article-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .article-image, .article-text-summary {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    /* Responsive pour la page Contact (empilement) */
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    .contact-image-wrapper {
+        order: -1; /* L'image remonte au-dessus des infos sur mobile */
+    }
+    
+    /* Responsive pour la grille d'images de l'atelier */
+    .atelier-images-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        max-width: 100%;
+    }
+    .atelier-img-large {
+        grid-row: auto;
+    }
+}
+
+/* Pour les très petits écrans (smartphones) */
+@media (max-width: 768px) {
+    /* HEADER ET NAVIGATION */
+    header .container {
+        flex-direction: column;
+    }
+
+    /* Empilement des images de taille sur les écrans très petits */
+    .tailles-wrapper {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    .taille-image {
+        width: 100%; 
+        max-width: none;
+    }
+
+    .logo-and-text-wrapper {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .logo-image-left {
+        margin: 0 0 10px 0;
+    }
+
+    .logo {
+        max-height: 50px;
+    }
+
+    nav {
+        width: 100%;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav a {
+        display: block;
+        width: 100%;
+    }
+
+    /* SECTIONS ET PADDING */
+    section {
+        padding: 40px 0;
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+
+    /* ATELIER & DÉMARCHE */
+    .demarche-details {
+        flex-direction: column;
+    }
+}
+
+/* Règle CSS corrigée pour l'image d'accueil (index.html) */
+.section-image-accueil {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-image-accueil img {
+    /* La largeur maximale est limitée à 100% de la largeur du conteneur (.container) */
+    max-width: 100%; 
+    /* L'image s'adapte en largeur sur les petits écrans */
+    width: auto; 
+    /* Assure que l'image ne dépasse jamais 600px de large, même sur un très grand écran */
+    max-width: 600px; 
+    height: auto;
+    border-radius: 8px;
+    /* Assure le centrage parfait */
+    display: block; 
+    margin: 0 auto;
+}
+
+/* ============================================== */
+/* 13. CORRECTION DE LA TAILLE DES IMAGES D'INTRODUCTION */
+/* ============================================== */
+
+/* Cible les div qui contiennent les images dans les sections */
+.section-top-image {
+    text-align: center; /* Pour centrer l'image */
+    margin: 20px auto 40px auto; /* Marge autour du conteneur */
+}
+
+/* Applique les règles de dimensionnement directement à l'image */
+.section-top-image img {
+    max-width: 600px; /* Taille maximale de 600 pixels */
+    width: 100%; /* Prendra toute la largeur si l'écran est plus petit que 600px */
+    height: auto; 
+    display: block; /* Nécessaire pour le centrage si max-width est utilisé */
+    margin: 0 auto; /* Centre l'image si elle est plus petite que 100% */
+    border-radius: 8px; /* Si vous voulez des coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Petite ombre esthétique */
+}

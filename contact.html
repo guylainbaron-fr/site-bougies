@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactez Jean François & ANIUTA - Lozère</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+</head>
+<body>
+
+<header>
+<div class="container">
+    
+    <div class="logo-and-text-wrapper">
+        
+        <div class="logo-image-left">
+            <h1>
+                <a href="index.html">
+                    <img src="images/logo-entreprise1.png" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                </a>
+            </h1>
+        </div>
+        
+        <div class="logo-text-header">
+            <p class="logo-title">JEAN FRANÇOIS & ANIUTA</p>
+            
+            <div class="separator"></div>
+
+            <p class="logo-slogan-line">SCULPTEUR ET DÉCORATEUR SUR BOIS</p>
+            <p class="logo-slogan-line">CRÉATEURS DE BOUGIES ARTISANALES PARFUMÉE</p>
+        </div>
+        
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="bougies.html">Les Bougies</a></li>
+            <li><a href="atelier.html">L'Atelier</a></li>
+            <li><a href="apropos.html">À Propos</a></li>
+            <li><a href="noel.html">Collection Noël</a></li>
+            <li><a href="contact.html">Contact</a></li> 
+        </ul>
+    </nav>
+</div>
+</header>
+
+<main>
+    
+<section id="contact-page">
+    <div class="container">
+        
+        <h2>Contactez-nous</h2>
+        
+        <p class="intro-contact">
+            Que vous ayez une demande spécifique de sculpture sur bois, un projet de bougie personnalisée ou simplement une question sur nos créations, nous sommes là pour vous. Appelez-nous ou envoyez-nous un email directement pour échanger sur votre projet.
+        </p>
+
+        <div class="contact-layout">
+            
+            <div class="contact-image-wrapper">
+                <img src="images/image-contact-atelier.jpg" alt="Atelier de sculpture et bougies allumées" class="contact-image">
+            </div>
+
+            <div class="contact-info-map">
+                <h3>Nos Coordonnées</h3>
+
+                <p>
+                    <strong>Jean François BARON & ANIUTA</strong> <br>
+                    <i class="fas fa-phone-alt"></i> Tél : <a href="tel:+33658909835">06 58 90 98 35</a> <br>
+                    <i class="fas fa-envelope"></i> Email : <span id="email-protected"></span> <br>
+                    <i class="fas fa-map-marker-alt"></i> Atelier : Chasseradès 48250 Mont Lozère et Goulet
+                </p>
+
+                <div class="map-container">
+                    <h4 style="margin-top: 20px;">Où nous trouver ?</h4>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11365.17646536349!2d3.847551!3d44.522616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4e13!3m3!1m2!1s0x12b3394c8b7c7b89%3A0x67798c8c7c97a81d!2sChasserad%C3%A8s%2C%2048250%20Mont%20Loz%C3%A8re%20et%20Goulet%2C%20France!5e0!3m2!1sen!2sus!4f13.1!5m2!1sen!2sus" 
+                        width="100%" 
+                        style="border:0; border-radius: 5px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container">
+        <div class="social-links">
+            <a href="https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR" target="_blank" aria-label="Lien vers la page Facebook de l'entreprise">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i> 
+            </a>
+
+            <a href="https://www.instagram.com/jean_francois_aniuta/" target="_blank" aria-label="Lien vers le profil Instagram de l'entreprise">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+            </a>
+
+            <a href="https://wa.me/33658909835" target="_blank" class="whatsapp-link" aria-label="Démarrer une conversation sur WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+
+            <a href="https://www.tiktok.com/@jeanfrancoisbaron2" target="_blank" class="tiktok-link" aria-label="Lien vers le profil TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        
+        <p>
+            &copy; 2025-2026 Jean François & ANIUTA. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a> 
+        </p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Séparer l'adresse en parties non lisibles par les spambots
+        var user = 'jeanfrancoisbaron';
+        var domain = 'laposte.net';
+        var address = user + '@' + domain;
+        
+        // Créer l'élément de lien cliquable
+        var link = document.createElement('a');
+        link.href = 'mailto:' + address;
+        link.textContent = address;
+        
+        // Trouver le conteneur et insérer le lien
+        var container = document.getElementById('email-protected');
+        if (container) {
+            container.appendChild(link);
+        }
+    });
+</script>
+
+</body>
+</html>
