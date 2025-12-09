@@ -230,6 +230,16 @@ nav a:hover {
     background-color: #1DA851; 
 }
 
+/* ------------------------------------------------------------------ */
+/* NOUVEAU STYLE SPÉCIFIQUE AU BOUTON PRINCIPAL (bougies.html) */
+/* ------------------------------------------------------------------ */
+.main-whatsapp-btn:hover {
+    background-color: white !important; /* Fond blanc */
+    color: #25D366 !important;          /* Texte/Icône vert */
+    border-color: #25D366 !important;   /* Bordure verte (ou blanche si vous préférez) */
+    background-image: none !important;
+}
+
 /* ============================================== */
 /* 05. SECTIONS GÉNÉRALES */
 /* ============================================== */
@@ -349,6 +359,15 @@ footer a {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
+/* ------------------------------------------------------------------ */
+/* MASQUER LE HÉROS SUR TABLETTE ET PC */
+/* ------------------------------------------------------------------ */
+@media (min-width: 768px) { 
+    #hero {
+        display: none; /* Cache complètement la section sur les écrans de 768px et plus */
+    }
+}
+
 /* Section Présentation Produits */
 .produits-grid {
     display: grid;
@@ -389,7 +408,6 @@ footer a {
 .produit-card .btn {
     margin-top: 15px;
 }
-
 
 /* ============================================== */
 /* 08. STYLES SPÉCIFIQUES À À PROPOS */
@@ -830,4 +848,10 @@ footer a {
     margin: 0 auto; /* Centre l'image si elle est plus petite que 100% */
     border-radius: 8px; /* Si vous voulez des coins arrondis */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Petite ombre esthétique */
+}
+
+/* --- Centrage des boutons spécifiques --- */
+.cta-wrapper {
+    text-align: center; /* Centre le bouton horizontalement */
+    margin-top: 20px;   /* Ajoute un petit espace au-dessus du bouton */
 }
