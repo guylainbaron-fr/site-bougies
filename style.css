@@ -356,7 +356,15 @@ footer a {
 #hero p {
     font-size: 1.3rem;
     margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    /* CIBLEZ UNIQUEMENT LE SOUS-TITRE EN MARRON */
+    color: #5D4037; 
+    /* Supprime l'ombre qui servait pour le texte blanc */
+    text-shadow: none; 
+    /* NOUVELLES RÈGLES POUR LA LISIBILITÉ */
+    background-color: rgba(255, 255, 255, 0.7); /* Fond blanc transparent (70% d'opacité) */
+    padding: 5px 15px; /* Ajoute un peu d'espace autour du texte */
+    display: inline-block; /* Permet au fond de s'adapter à la largeur du texte */
+    border-radius: 5px; /* Adoucit les coins du fond */
 }
 
 /* ------------------------------------------------------------------ */
