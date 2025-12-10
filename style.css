@@ -336,7 +336,7 @@ footer a {
 
 /* Section Héros */
 #hero {
-    background: url('images/hero-home.png') no-repeat center center/cover;
+    background: url('images/hero-home.webp') no-repeat center center/cover;
     color: white;
     text-align: center;
     padding: 100px 0;
@@ -599,24 +599,26 @@ footer a {
         flex-basis: 100%;
     }
 }
+
 /* ============================================== */
-/* 10. STYLES SPÉCIFIQUES À L'ATELIER */
+/* 10. STYLES SPÉCIFIQUES À L'ATELIER (MIS À JOUR) */
 /* ============================================== */
 
 /* Grille d'images pour l'introduction de l'atelier */
 .atelier-images-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(2, auto);
+    grid-template-columns: 2fr 1fr; /* 2/3 pour la grande image, 1/3 pour les petites */
+    grid-template-rows: repeat(2, 1fr); /* Deux lignes de hauteur égale pour aligner les petites images */
     gap: 15px;
     margin: 40px auto;
     max-width: 900px;
+    height: 600px; /* AJOUT : Hauteur fixe pour que les lignes 1fr s'alignent bien sur PC */
 }
 
 .atelier-img-large {
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 2; /* L'image LARGE s'étend sur les deux lignes */
     width: 100%;
-    height: 100%;
+    height: 100%; /* S'assure qu'elle remplit toute la hauteur disponible */
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -624,13 +626,30 @@ footer a {
 
 .atelier-img-small {
     width: 100%;
-    height: auto;
+    height: 100%; /* CHANGEMENT : Remplir la hauteur de sa ligne (ligne 1 ou ligne 2) */
     object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-/* Grille des étapes de création */
+/* ------------------------------------------------------------------ */
+/* RESPONSIVE : Revenir à l'empilement sur mobile/tablette */
+/* ------------------------------------------------------------------ */
+@media (max-width: 768px) {
+    .atelier-images-grid {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-rows: auto; /* Hauteur automatique */
+        height: auto; /* Retire la hauteur fixe sur mobile */
+    }
+
+    .atelier-img-large {
+        grid-row: auto;
+        height: auto;
+    }
+}
+
+
+/* Grille des étapes de création (Pas de changement) */
 .creation-steps-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -658,7 +677,7 @@ footer a {
     margin-top: 0;
 }
 
-/* Détails de l'engagement éthique */
+/* Détails de l'engagement éthique (Pas de changement) */
 .demarche-details {
     display: flex;
     gap: 30px;
@@ -678,7 +697,6 @@ footer a {
     font-size: 1.2rem;
     color: var(--couleur-texte-sombre);
 }
-
 
 /* ============================================== */
 /* 11. STYLES SPÉCIFIQUES À CONTACT ET LÉGALES */
@@ -897,4 +915,52 @@ footer a {
 .cta-wrapper {
     text-align: center; /* Centre le bouton horizontalement */
     margin-top: 20px;   /* Ajoute un petit espace au-dessus du bouton */
+}
+
+/* 14. CORRECTIF UX MOBILE PAYSAGE */
+/* ============================================== */
+
+/* Cible les téléphones/tablettes (max 767px) en mode paysage (orientation: landscape) */
+/* La hauteur maximale est souvent faible dans ce mode */
+@media screen and (max-width: 767px) and (orientation: landscape) {
+    #hero {
+        /* Force la hauteur du héros à occuper 85% de la hauteur de l'écran (viewport) */
+        /* Cela garantit que l'image et le contenu restent visibles sans être trop coupés */
+        min-height: 85vh; 
+        /* En mode paysage, le padding vertical peut être excessif, on le réduit si nécessaire */
+        padding: 50px 0; 
+    }
+}
+
+/* Styles pour l'image placée sous le bouton WhatsApp sur la page bougies */
+.whatsapp-image-container {
+    /* Centre l'image au milieu de la page */
+    text-align: center; 
+    /* Ajoute de l'espace autour */
+    margin: 30px auto; 
+    /* Limite la largeur maximale du conteneur (laissant l'image s'afficher à 500px) */
+    max-width: 550px; 
+}
+
+.image-sous-whatsapp {
+    /* S'assure qu'elle ne déborde pas sur les petits écrans */
+    max-width: 100%; 
+    height: auto;
+    /* Styles pour l'esthétique */
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Règle pour garantir que tous les titres H4 occupent le même espace vertical */
+.video-item h4 {
+    margin-top: 0; 
+    /* Marge sous le titre (ajustez si 30px est votre préférence) */
+    margin-bottom: 30px; 
+    text-align: center; 
+    
+    /* LA CORRECTION : Garantir l'espace pour deux lignes de texte */
+    min-height: 60px; /* Exemple: Si une ligne fait 20px, 40px donne l'espace pour deux lignes */
+    
+    /* Ajustement optionnel si vous avez défini une ligne-height */
+    /* line-height: 1.2; */ 
 }
