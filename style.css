@@ -265,6 +265,11 @@ section {
     background-color: var(--couleur-accent);
 }
 
+#souvenirs {
+    /* Utilise la variable que nous avons définie pour les fonds secondaires */
+    background-color: var(--couleur-accent); 
+    padding: 60px 0; /* Ajouter un espacement vertical pour l'esthétique */
+}
 
 /* ============================================== */
 /* 06. PIED DE PAGE (FOOTER) */
@@ -336,43 +341,85 @@ footer a {
 
 /* Section Héros */
 #hero {
-    background: url('images/hero-home.webp') no-repeat center center/cover;
+    /* SUPPRIME background: url(...) du CSS */
+    background: none; 
+    position: relative; 
     color: white;
     text-align: center;
     padding: 100px 0;
-    min-height: 450px;
+    min-height: 550px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 1; 
 }
 
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+/* Positionnement de l'image HTML pour qu'elle remplisse l'arrière-plan */
+.hero-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recouvre tout */
+    z-index: -1; /* Place l'image derrière tout, y compris l'overlay */
+}
+
+/* Superposition très légère (25% d'opacité, comme demandé) */
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.25); 
+    z-index: 0;
+}
+
+/* S'assurer que le contenu est bien au-dessus de l'overlay */
+#hero .container {
+    z-index: 2; 
+    position: relative;
+}
+
+#hero h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    /* On maintient une bonne ombre pour compenser le faible filtre */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9); 
     color: white;
 }
 
 #hero p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    /* CIBLEZ UNIQUEMENT LE SOUS-TITRE EN MARRON */
-    color: #5D4037; 
-    /* Supprime l'ombre qui servait pour le texte blanc */
-    text-shadow: none; 
-    /* NOUVELLES RÈGLES POUR LA LISIBILITÉ */
-    background-color: rgba(255, 255, 255, 0.7); /* Fond blanc transparent (70% d'opacité) */
-    padding: 5px 15px; /* Ajoute un peu d'espace autour du texte */
-    display: inline-block; /* Permet au fond de s'adapter à la largeur du texte */
-    border-radius: 5px; /* Adoucit les coins du fond */
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: white; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+    background-color: transparent; 
+    padding: 0;
+    display: block; 
+    border-radius: 0;
 }
 
+/* ... (Les règles @media pour mobile restent inchangées) ... */
+
+
 /* ------------------------------------------------------------------ */
-/* MASQUER LE HÉROS SUR TABLETTE ET PC */
+/* RETRAIT DE LA RÈGLE DE MASQUAGE (Correction majeure) */
 /* ------------------------------------------------------------------ */
-@media (min-width: 768px) { 
+/* La règle qui cachait le Hero sur >768px doit être SUPPRIMÉE ! */
+/* Si vous aviez d'autres règles media query pour le Hero, ajustez-les ici. */
+
+@media (max-width: 992px) {
     #hero {
-        display: none; /* Cache complètement la section sur les écrans de 768px et plus */
+        min-height: 450px; /* Moins haut sur tablette */
+    }
+    #hero h1 {
+        font-size: 2.5rem; 
+    }
+    #hero p {
+        font-size: 1.25rem;
     }
 }
 
@@ -963,4 +1010,266 @@ footer a {
     
     /* Ajustement optionnel si vous avez défini une ligne-height */
     /* line-height: 1.2; */ 
+}
+
+/* ============================================== */
+/* STYLES DU TABLEAU DES ÉVÉNEMENTS (.tableau-evenements) */
+/* ============================================== */
+
+.tableau-evenements {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px auto;
+    max-width: 900px;
+    font-size: 0.95em;
+    text-align: left;
+}
+
+.tableau-evenements thead th {
+    background-color: var(--couleur-secondaire);
+    color: white;
+    padding: 15px 10px;
+    border: 1px solid var(--couleur-primaire);
+    text-align: center;
+}
+
+/* MODIFICATION CLÉ : Applique le fond accent à TOUTES les lignes de données */
+.tableau-evenements tbody tr {
+    background-color: var(--couleur-accent);
+    color: var(--couleur-texte-sombre); 
+}
+
+.tableau-evenements tbody td {
+    padding: 12px 10px;
+    /* Bordure blanche pour séparer les cellules sur le fond coloré */
+    border: 1px solid white; 
+    vertical-align: top;
+}
+
+/* Annule l'effet de survol et d'alternance */
+.tableau-evenements tbody tr:hover,
+.tableau-evenements tbody tr:nth-child(odd),
+.tableau-evenements tbody tr:nth-child(even) {
+    background-color: var(--couleur-accent); 
+}
+
+/* Centrage spécifique pour les colonnes courtes */
+.tableau-evenements td:nth-child(2), /* Date */
+.tableau-evenements td:nth-child(4)  /* Horaires */
+ {
+    text-align: center;
+}
+
+/* ============================================== */
+/* 15. CSS SPECIFIQUE - PAGE EVENEMENTS */
+/* (Styles pour la section #prochain-evenement) */
+/* ============================================== */
+
+/* 1. Conteneur principal des informations (Détails + Carte) */
+.market-info-wrapper {
+    display: flex;
+    gap: 40px; 
+    
+    /* CORRECTION CLÉ 1 : Utiliser 'stretch' pour forcer les enfants à prendre la même hauteur */
+    align-items: stretch; 
+    
+    margin: 40px auto;
+    max-width: 1200px; 
+}
+
+/* 2. Style des détails du marché (colonne de gauche) */
+.market-details {
+    width: 45%; 
+    padding: 20px;
+    background-color: var(--couleur-fond-clair); 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding-bottom: 20px; 
+}
+
+.market-details h3 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: var(--couleur-primaire); 
+    border-bottom: 2px solid var(--couleur-secondaire); 
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.market-details p {
+    margin-bottom: 10px;
+}
+
+/* Liste des horaires (le ul imbriqué dans le p) */
+.market-details ul {
+    list-style: none; 
+    padding-left: 0;
+    margin: -5px 0 15px 0; 
+    padding-left: 25px; 
+}
+
+.market-details li {
+    margin-bottom: 3px;
+    font-size: 0.95em;
+    line-height: 1.3;
+}
+
+/* Style des icônes à côté des informations */
+.market-details i {
+    margin-right: 10px;
+    color: var(--couleur-secondaire);
+}
+
+.market-description {
+    font-style: italic;
+    margin-top: 25px;
+    margin-bottom: 25px; 
+    color: var(--couleur-texte-sombre);
+}
+
+/* Style pour le bouton */
+.market-details .btn {
+    width: auto;
+    display: inline-block;
+    margin-top: 20px;
+    /* CORRECTION CONSERVÉE : Pour aligner le bouton correctement */
+    margin-bottom: 0; 
+}
+
+
+/* 3. Style de l'espace carte (colonne de droite) */
+.market-map {
+    width: 55%; 
+    
+    /* CORRECTION CLÉ 2 : SUPPRIMER la hauteur fixe (400px) ici */
+    /* L'étirement sera géré par align-items: stretch sur le parent. */
+    
+    border-radius: 8px;
+    overflow: hidden; 
+    background-color: #f0f0f0; 
+}
+
+/* 4. Style de l'iframe à l'intérieur de la carte (Doit être dans la section 15) */
+.market-map iframe {
+    width: 100%;
+    /* CORRECTION CLÉ 3 : S'assurer qu'il prenne 100% de la hauteur élastique de .market-map */
+    height: 100%; 
+    display: block;
+    border: none; 
+}
+
+
+/* 5. Responsive : Empiler sur les petits écrans */
+@media (max-width: 992px) {
+    .market-info-wrapper {
+        flex-direction: column; 
+        gap: 20px;
+    }
+    
+    .market-details, .market-map {
+        width: 100%; 
+    }
+    
+    .market-details {
+         text-align: left; 
+    }
+    
+    .market-map {
+        /* SUR MOBILE, NOUS RÉINTRODUISONS UNE HAUTEUR FIXE pour que la carte ne disparaisse pas */
+        height: 250px; 
+    }
+}
+
+/* ============================================== */
+/* 16. CSS SPECIFIQUE - GALERIE ET VIDÉOS */
+/* 16A. Photo de présentation */
+/* ============================================== */
+
+/* NOUVEAU CONTENEUR PARENT : Encadre toutes les affiches et les centre */
+.affiche-container {
+    display: flex; /* Active l'alignement côte à côte */
+    flex-wrap: wrap; /* Permet le passage à la ligne sur les petits écrans */
+    gap: 30px; /* Espace entre les affiches */
+    justify-content: center; /* Centre le groupe d'affiches */
+    margin: 40px auto 60px auto; /* Marge pour séparer la section du reste du contenu */
+    max-width: 1000px; /* Limite la largeur du conteneur d'affiches (ajustez si besoin) */
+}
+
+/* L'élément unique d'affiche : devient une colonne de la Flexbox */
+.photo-presentation {
+    /* Nouvelle largeur maximale pour une seule affiche */
+    max-width: 350px; 
+    flex-basis: 350px; /* Définition de la largeur de base (pour le responsive) */
+    
+    margin: 0; /* On annule les anciennes marges auto */
+    text-align: center;
+}
+
+/* L'image : prend toute la place dans les 350px de l'affiche */
+.photo-presentation img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    /* Ajout d'une ombre douce pour l'effet de cadre */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Le titre H4 : seulement les marges autour du texte */
+.photo-presentation h4 {
+    color: var(--couleur-primaire);
+    font-size: 1.3rem;
+    margin-top: 10px;
+    margin-bottom: 0; /* On retire la grande marge du bas, elle est gérée par .affiche-container */
+}
+
+/* ============================================== */
+/* 16B. Grille de la Galerie Photo */
+/* ============================================== */
+
+.photo-gallery {
+    display: grid;
+    /* CORRECTION CLÉ : Augmenter la taille minimale à 300px ou plus. */
+    /* Cela forcera la grille à ne faire que 3 colonnes sur un écran standard. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px; 
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Style commun pour chaque carte photo */
+.photo-item {
+    background-color: white; 
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: translateY(-5px); /* Petit effet de survol */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 300px; /* Hauteur fixe pour que toutes les vignettes soient uniformes */
+    object-fit: cover; /* Recadre l'image pour remplir le conteneur sans la déformer */
+    display: block;
+}
+
+.photo-item h4 {
+    font-size: 1.05rem;
+    color: var(--couleur-secondaire);
+    padding: 10px 15px;
+    margin: 0;
+    /* Assure que tous les titres ont une hauteur minimale */
+    min-height: 45px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
