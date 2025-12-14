@@ -1182,6 +1182,25 @@ footer a {
     }
 }
 
+/* Cible les écrans étroits et les téléphones/tablettes */
+@media screen and (max-width: 767px) {
+    /* 1. Assurer que la liste des liens peut s'étendre et s'enrouler */
+    header nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        justify-content: center; /* Centre les liens, même sur plusieurs lignes */
+        padding: 0 10px; /* Petit padding horizontal pour ne pas coller aux bords */
+        gap: 10px 5px; /* Ajoute un petit espace entre les lignes et entre les liens */
+    }
+
+    /* 2. Réduire la taille des liens pour optimiser l'espace */
+    header nav ul li a {
+        font-size: 0.8rem; /* Réduit légèrement la taille de la police */
+        padding: 5px 8px; /* Réduit l'espace autour du texte du lien */
+        white-space: nowrap; /* Empêche les noms des liens (ex: "Collection Noël") de se couper */
+    }
+}
+
 /* ============================================== */
 /* 16. CSS SPECIFIQUE - GALERIE ET VIDÉOS */
 /* 16A. Photo de présentation */
