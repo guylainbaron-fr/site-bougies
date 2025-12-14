@@ -1174,6 +1174,12 @@ footer a {
     .market-details {
          text-align: center; 
     }
+
+    .market-details p {
+        display: inline-block; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
     
     .market-map {
         /* SUR MOBILE, NOUS RÉINTRODUISONS UNE HAUTEUR FIXE pour que la carte ne disparaisse pas */
@@ -1184,12 +1190,11 @@ footer a {
         margin-left: auto;
         margin-right: auto;
         padding-left: 0; 
-        /* Fait en sorte que la liste ne prenne que la largeur nécessaire pour être centrée */
         display: table; 
     }
 
-    .market-details .btn {
-        display: block; /* Nécessaire pour appliquer margin: auto */
+   .market-details .btn {
+        display: block;
         margin: 20px auto 0 auto; 
     }
 }
