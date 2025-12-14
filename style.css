@@ -1348,3 +1348,13 @@ footer a {
     justify-content: center;
     text-align: center;
 }
+
+/* ============================================== */
+/* 17. RESET MARGES GÉNÉRALES (Anti-débordement) */
+/* ============================================== */
+
+body {
+    overflow-x: hidden; /* Empêche le défilement horizontal causé par des marges externes */
+    padding: 0; 
+    margin: 0; 
+}
