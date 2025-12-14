@@ -1180,6 +1180,17 @@ footer a {
         margin-left: auto; 
         margin-right: auto;
     }
+
+    .market-details p, .market-details h3 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .market-details i {
+        margin-right: 5px; 
+    }
     
     .market-map {
         /* SUR MOBILE, NOUS RÉINTRODUISONS UNE HAUTEUR FIXE pour que la carte ne disparaisse pas */
