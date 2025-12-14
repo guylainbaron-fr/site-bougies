@@ -1162,9 +1162,19 @@ footer a {
 
 /* 5. Responsive : Empiler sur les petits écrans */
 @media (max-width: 992px) {
+    /* 🚨 RÉINITIALISATION GLOBALE FORCÉE (Priorité Maximale) */
+    body, section#prochain-evenement {
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow-x: hidden !important; /* Le plus important contre le décalage */
+    }
+
     .market-info-wrapper {
         flex-direction: column; 
         gap: 20px;
+        /* Annuler toute marge ou padding résiduel sur le wrapper */
+        padding: 0 !important;
+        margin: 0 !important;
     }
     
     .market-details, .market-map {
@@ -1172,7 +1182,10 @@ footer a {
     }
     
     .market-details {
-         text-align: center; 
+        text-align: center !important; 
+        /* Annuler tout padding interne qui pourrait pousser les bords */
+        padding-left: 0 !important;
+        padding-right: 0 !important; 
     }
 
     .market-details p {
@@ -1193,31 +1206,19 @@ footer a {
     }
     
     .market-map {
-        /* SUR MOBILE, NOUS RÉINTRODUISONS UNE HAUTEUR FIXE pour que la carte ne disparaisse pas */
         height: 250px; 
     }
 
     .market-details ul {
         margin-left: auto;
         margin-right: auto;
-        padding-left: 0; 
+        padding-left: 0 !important; /* Forcé */
         display: table; 
     }
 
-   .market-details .btn {
+    .market-details .btn {
         display: block;
         margin: 20px auto 0 auto; 
-    }
-    
-    section#prochain-evenement {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    
-    body {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        overflow-x: hidden !important;
     }
 }
 
