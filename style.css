@@ -1182,22 +1182,36 @@ footer a {
     }
 }
 
-/* Cible les écrans étroits et les téléphones/tablettes */
+/* ============================================== */
+/* 15. CORRECTIF CRITIQUE : Menu Mobile Paysage */
+/* ============================================== */
+
 @media screen and (max-width: 767px) {
-    /* 1. Assurer que la liste des liens peut s'étendre et s'enrouler */
-    header nav ul {
-        display: flex;
-        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
-        justify-content: center; /* Centre les liens, même sur plusieurs lignes */
-        padding: 0 10px; /* Petit padding horizontal pour ne pas coller aux bords */
-        gap: 10px 5px; /* Ajoute un petit espace entre les lignes et entre les liens */
+    
+    /* 🚨 AJOUT/MODIFICATION CLÉ : Permettre le défilement horizontal */
+    header nav {
+        overflow-x: auto; /* Permet le défilement horizontal si le contenu dépasse */
+        white-space: nowrap; /* Empêche les sauts de ligne inutiles */
+        width: 100%; /* S'assure qu'il prend toute la largeur pour le défilement */
+        display: block; /* S'assurer que le nav se comporte comme un bloc pour l'overflow */
+        padding-bottom: 5px; /* Petit espace si une scrollbar apparaît */
     }
 
-    /* 2. Réduire la taille des liens pour optimiser l'espace */
+    /* 1. La liste ul doit maintenant être sur une seule ligne */
+    header nav ul {
+        display: inline-flex; /* 🚨 IMPORTANT : Permet à tous les LI de s'aligner sur une seule ligne */
+        flex-wrap: nowrap; /* S'assurer qu'il n'y a pas de retour à la ligne */
+        justify-content: flex-start; /* Aligner à gauche pour le défilement */
+        padding: 0 10px;
+        gap: 5px; /* Espacement réduit entre les liens */
+        min-width: max-content; /* S'assure que UL est assez large pour contenir tous les liens */
+    }
+
+    /* 2. Réduire la taille des liens et interdire les coupures de texte */
     header nav ul li a {
-        font-size: 0.8rem; /* Réduit légèrement la taille de la police */
-        padding: 5px 8px; /* Réduit l'espace autour du texte du lien */
-        white-space: nowrap; /* Empêche les noms des liens (ex: "Collection Noël") de se couper */
+        font-size: 0.8rem;
+        padding: 5px 8px;
+        white-space: nowrap; /* Maintient le texte sur une seule ligne */
     }
 }
 
