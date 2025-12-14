@@ -1160,7 +1160,6 @@ footer a {
     border: none; 
 }
 
-
 /* 5. Responsive : Empiler sur les petits écrans */
 @media (max-width: 992px) {
     .market-info-wrapper {
@@ -1173,12 +1172,25 @@ footer a {
     }
     
     .market-details {
-         text-align: left; 
+         text-align: center; 
     }
     
     .market-map {
         /* SUR MOBILE, NOUS RÉINTRODUISONS UNE HAUTEUR FIXE pour que la carte ne disparaisse pas */
         height: 250px; 
+    }
+
+    .market-details ul {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 0; 
+        /* Fait en sorte que la liste ne prenne que la largeur nécessaire pour être centrée */
+        display: table; 
+    }
+
+    .market-details .btn {
+        display: block; /* Nécessaire pour appliquer margin: auto */
+        margin: 20px auto 0 auto; 
     }
 }
 
