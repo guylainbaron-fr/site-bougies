@@ -1162,18 +1162,18 @@ footer a {
 
 /* 5. Responsive : Empiler sur les petits écrans */
 @media (max-width: 992px) {
-    /* 🚨 RÉINITIALISATION GLOBALE FORCÉE (Priorité Maximale) */
-    body, section#prochain-evenement {
+    /* 🚨 CIBLE CRUCIALE : Annuler les marges/paddings du conteneur général */
+    body, .container, section#prochain-evenement {
         padding: 0 !important;
         margin: 0 !important;
-        overflow-x: hidden !important; /* Le plus important contre le décalage */
+        overflow-x: hidden !important; 
     }
 
     .market-info-wrapper {
         flex-direction: column; 
         gap: 20px;
-        /* Annuler toute marge ou padding résiduel sur le wrapper */
-        padding: 0 !important;
+        /* Ajout d'un padding pour donner de l'air après la réinitialisation du .container */
+        padding: 0 15px; 
         margin: 0 !important;
     }
     
@@ -1183,10 +1183,11 @@ footer a {
     
     .market-details {
         text-align: center !important; 
-        /* Annuler tout padding interne qui pourrait pousser les bords */
         padding-left: 0 !important;
         padding-right: 0 !important; 
     }
+
+    /* ... (toutes les règles p, h3, i, ul, btn restent les mêmes) ... */
 
     .market-details p {
         display: inline-block; 
@@ -1212,13 +1213,20 @@ footer a {
     .market-details ul {
         margin-left: auto;
         margin-right: auto;
-        padding-left: 0 !important; /* Forcé */
+        padding-left: 0 !important; 
         display: table; 
     }
 
     .market-details .btn {
         display: block;
         margin: 20px auto 0 auto; 
+    }
+    
+    /* Le tableau des autres dates doit aussi être centré s'il est décalé */
+    .tableau-evenements {
+        margin: 20px auto !important;
+        max-width: 95%;
+        width: 100%; /* S'assurer qu'il prend toute la place pour le défilement */
     }
 }
 
