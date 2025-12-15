@@ -884,7 +884,8 @@ footer a {
     }
 
     .logo {
-        max-height: 50px;
+        max-height: auto;
+        width: 88px;
     }
 
     nav {
