@@ -21,8 +21,17 @@
     
     <meta name="description" content="Vous avez une question sur nos sculptures ou nos bougies ? Contactez-nous par téléphone, e-mail, ou visitez notre atelier à Chasseradès (48). Nous vous répondons rapidement.">
     
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -127,7 +136,7 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
                 </a>
             </h1>
         </div>
@@ -170,7 +179,10 @@
         <div class="contact-layout">
             
             <div class="contact-image-wrapper">
-                <img src="images/image-contact-atelier.webp" alt="Atelier de sculpture et bougies allumées" class="contact-image">
+                <img src="images/image-contact-atelier.webp" 
+        alt="Atelier de sculpture et bougies allumées" 
+        class="contact-image"
+        width="600"  height="400">
             </div>
 
             <div class="contact-info-map">
@@ -186,13 +198,11 @@
                 <div class="map-container">
                     <h4 style="margin-top: 20px;">Où nous trouver ?</h4>
                     <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11365.17646536349!2d3.847551!3d44.522616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4e13!3m3!1m2!1s0x12b3394c8b7c7b89%3A0x67798c8c7c97a81d!2sChasserad%C3%A8s%2C%2048250%20Mont%20Loz%C3%A8re%20et%20Goulet%2C%20France!5e0!3m2!1sen!2sus!4f13.1!5m2!1sen!2sus" 
-                        width="100%" 
-                        style="border:0; border-radius: 5px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11365.17646536349!2d3.847551!3d44.522616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4e13!3m3!1m2!1s0x12b3394c8b7c7b89%3A0x67798c8c7c97a81d!2sChasserad%C3%A8s%2C%2048250%20Mont%20Loz%C3%A8re%20et%20Goulet%2C%20France!5e0!3m2!1sen!2sus!4f13.1!5m2!1sen!2sus" 
+        width="100%" 
+        height="400"  style="border:0; border-radius: 5px;" 
+        allowfullscreen="" 
+        referrerpolicy="no-referrer-when-downgrade"> </iframe>
                 </div>
             </div>
 

@@ -21,9 +21,17 @@
     
     <meta name="description" content="Trouvez le cadeau idéal pour Noël ! Nos bougies sont disponibles en Vanille Gourmande et accompagnées de sculptures Cèpes en bois spéciales fêtes. Commandez vite !">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -128,7 +136,7 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
                 </a>
             </h1>
         </div>
@@ -173,7 +181,7 @@
             <div class="video-item">
                 <h4>Idées Cadeaux : Bougies Hivernales</h4>
                 <div class="video-responsive">
-                    <video controls preload="none" poster="images/miniature-cadeau-1.webp">
+                    <video controls preload="none" poster="images/miniature-cadeau-1.webp" width="270" height="270">
                         <source src="videos/video-noel-1.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la balise vidéo.
                     </video>
@@ -183,7 +191,7 @@
             <div class="video-item">
                 <h4>Idées Cadeaux : Bougies à la vanille gourmande</h4>
                 <div class="video-responsive">
-                    <video controls preload="none" poster="images/miniature-cadeau-2.webp">
+                    <video controls preload="none" poster="images/miniature-cadeau-2.webp" width="270" height="270">
                         <source src="videos/video-noel-2.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la balise vidéo.
                     </video>
@@ -193,7 +201,7 @@
             <div class="video-item">
                 <h4>Idées Cadeaux : Bougies Cèpes</h4>
                 <div class="video-responsive">
-                    <video controls preload="none" poster="images/miniature-cadeau-3.webp">
+                    <video controls preload="none" poster="images/miniature-cadeau-3.webp" width="270" height="270">
                         <source src="videos/video-noel-3.mp4" type="video/mp4">
                         Votre navigateur ne supporte pas la balise vidéo.
                     </video>

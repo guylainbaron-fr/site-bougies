@@ -21,9 +21,17 @@
     
     <meta name="description" content="Découvrez l'artisanat du bois et de la bougie de J.F. & Aniuta. Sculptures uniques sur bois local et bougies naturelles parfumées à Chasseradès (Lozère).">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -128,7 +136,7 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
                 </a>
             </h1>
         </div>
@@ -158,7 +166,18 @@
 </header>
 
     <section id="hero">
-    <img src="images/hero-home.webp" alt="Scènes d'atelier de sculptures et bougies" class="hero-background-image" fetchpriority="high" loading="eager">
+    <img 
+    src="images/hero-home.webp" 
+    alt="Scènes d'atelier de sculptures et bougies" 
+    class="hero-background-image" 
+    fetchpriority="high" 
+    loading="eager"
+    
+    width="1435"   height="708"   srcset="
+        images/hero-home-600.webp 600w,
+        images/hero-home-1000.webp 1000w,
+        images/hero-home.webp 1435w"
+    sizes="100vw"  >
     <div class="container">
         <h2>L'Héritage Lozérien : Maîtres Sculpteurs et Créateurs de Bougies Artisanales.</h2>         <p>Chaleur du bois sculpté, réconfort de la flamme parfumée. L'artisanat conçu pour enrichir votre intérieur.</p>
         <a href="bougies.html" class="btn large-btn" title="Accéder à notre collection de bougies">Découvrir l'univers</a>
@@ -171,7 +190,13 @@
         <div class="container">
             
                 <div class="section-top-image">
-                    <img src="images/accueil-h2-1.webp" alt="Image illustrant l'art du bois et des bougies" class="intro-image-1">
+                    <img 
+    src="images/accueil-h2-1.webp" 
+    alt="Image illustrant l'art du bois et des bougies" 
+    class="intro-image-1"
+    width="600"
+    height="669"
+    loading="lazy" >
                 </div>
                             <h2>L'Art du Bois et le Parfum des Sens.</h2>              
             <p>
@@ -184,7 +209,14 @@
     <section id="atelier">
         <div class="container">
                 <div class="section-top-image">
-                    <img src="images/accueil-h2-2.webp" alt="Vue intérieure de l'atelier de création" class="intro-image-2">
+                    <img 
+    src="images/accueil-h2-2.webp" 
+    alt="Vue intérieure de l'atelier de création" 
+    class="intro-image-2"
+    width="600"
+    height="800"
+    loading="lazy" 
+>
                 </div>
                             <h2>Notre Atelier : Là où la Magie Opère</h2>
             <p>
@@ -199,7 +231,14 @@
     <section id="apropos">
         <div class="container">
                 <div class="section-top-image">
-                    <img src="images/accueil-h2-3.webp" alt="Portrait de l'artisan Jean-François BARON" class="intro-image-3">
+                    <img 
+    src="images/accueil-h2-3.webp" 
+    alt="Portrait de l'artisan Jean-François BARON" 
+    class="intro-image-3"
+    width="600"
+    height="669"
+    loading="lazy" 
+>
                 </div>
                             <h2>À Propos de l'Artisan et Notre Histoire</h2>
             <p>

@@ -21,8 +21,17 @@
     
     <meta name="description" content="Découvrez notre bougie artisanale unique, coulée à la main avec de la cire végétale et le parfum Vanille Gourmande. Commandez en ligne via WhatsApp.">
     
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
+    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -127,7 +136,7 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
                 </a>
             </h1>
         </div>
@@ -159,30 +168,68 @@
 <main>
 
     <section id="bougies">
-        <div class="container">
-            <h2>Découvrez nos Bougies Artisanales</h2>
-            
-            <p>
-                Chaque bougie Jean François & Aniuta est une invitation à l'évasion olfactive, conçue avec la plus grande exigence. Coulées à la main dans notre atelier en Lozère, elles incarnent notre engagement envers l'artisanat de qualité, le naturel et le respect de l'environnement. Découvrez la différence d'une bougie véritablement artisanale.
-            </p>
+    <div class="container">
+        <h2>Découvrez nos Bougies Artisanales</h2>
+        
+        <p>
+            Chaque bougie Jean François & Aniuta est une invitation à l'évasion olfactive, conçue avec la plus grande exigence. Coulées à la main dans notre atelier en Lozère, elles incarnent notre engagement envers l'artisanat de qualité, le naturel et le respect de l'environnement. Découvrez la différence d'une bougie véritablement artisanale.
+        </p>
 
-            <div class="bougies-images-grid">
-                <img src="images/bougie-tarifs.webp" alt="Grille des tarifs des bougies" class="tarifs-image">
-                
-                <div class="tailles-wrapper">
-                    <img src="images/bougie-petite.webp" alt="Petite taille de bougie" class="taille-image">
-                    <img src="images/bougie-moyenne.webp" alt="Taille moyenne de bougie" class="taille-image">
-                    <img src="images/bougie-grande.webp" alt="Grande taille de bougie" class="taille-image">
-                </div>
+        <div class="bougies-images-grid">
+            <img 
+                src="images/bougie-tarifs.webp" 
+                alt="Grille des tarifs des bougies" 
+                class="tarifs-image"
+                width="565"   
+                height="800"  
+                loading="eager"     
+                fetchpriority="high"
+            >
+            
+            <div class="tailles-wrapper">
+                <img 
+                    src="images/bougie-petite.webp" 
+                    alt="Petite taille de bougie" 
+                    class="taille-image"
+                    width="240"   
+                    height="268"  
+                    loading="lazy"
+                >
+                <img 
+                    src="images/bougie-moyenne.webp" 
+                    alt="Taille moyenne de bougie" 
+                    class="taille-image"
+                    width="240"   
+                    height="268"  
+                    loading="lazy"
+                >
+                <img 
+                    src="images/bougie-grande.webp" 
+                    alt="Grande taille de bougie" 
+                    class="taille-image"
+                    width="240"   
+                    height="268"  
+                    loading="lazy"
+                >
             </div>
-                        <a href="https://wa.me/33658909835" target="_blank" class="btn large-btn whatsapp-btn main-whatsapp-btn"><i class="fab fa-whatsapp"></i> Commander en ligne via WhatsApp</a>
-                <div class="whatsapp-image-container">
-                    <img src="images/bougies-allumees.jpg" alt="Bougies cèpes allumées" class="image-sous-whatsapp">
-            </div>
-        </div>
-    </section>
-    
-    <section id="conseils" style="background-color: var(--couleur-fond-clair);">
+        </div>
+        
+        <a href="https://wa.me/33658909835" target="_blank" class="btn large-btn whatsapp-btn main-whatsapp-btn"><i class="fab fa-whatsapp"></i> Commander en ligne via WhatsApp</a>
+        
+        <div class="whatsapp-image-container">
+            <img 
+                src="images/bougies-allumees.jpg" 
+                alt="Bougies cèpes allumées" 
+                class="image-sous-whatsapp"
+                width="500"
+                height="500"
+                loading="lazy"
+            >
+        </div>
+    </div>
+</section>
+
+<section id="conseils" style="background-color: var(--couleur-fond-clair);">
         <div class="container">
             <h2>Conseils d'Utilisation</h2>
             <p>Pour profiter au maximum de votre bougie Jean François & Aniuta, suivez cette recommandation :</p>
@@ -194,7 +241,7 @@
             <a href="contact.html" class="btn">Poser une Question</a>
         </div>
     </section>
-
+    
 </main>
 
 <footer>

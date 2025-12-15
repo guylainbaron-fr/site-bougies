@@ -21,9 +21,17 @@
     
     <meta name="description" content="Découvrez l'artisanat du bois et de la bougie de J.F. & Aniuta. Sculptures uniques sur bois local et bougies naturelles parfumées à Chasseradès (Lozère).">
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    
+    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -128,7 +136,7 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON & ANIUTA - Artisanat" class="logo">
+                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
                 </a>
             </h1>
         </div>
@@ -158,8 +166,8 @@
 </header>
 
     <main>
-        
-    <section id="prochain-evenement"> 
+    
+    <section id="prochain-evenement"> 
     <div class="container">
         
         <h2>🗓️ Notre Prochain Événement : Marché de Noël de Mende</h2>
@@ -198,26 +206,26 @@
             </div>
             
             <div class="market-map">
-    <p class="map-placeholder-text">Localisation approximative sur la carte ci-dessus.</p>
-    
-    <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.8876803711287!2d3.498725254443339!3d44.51745398553724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b36e757d8dad6d%3A0x8b9ed0ae376ae579!2sPl.%20au%20Bl%C3%A9%2C%2048000%20Mende!5e0!3m2!1sfr!2sfr!4v1765655863274!5m2!1sfr!2sfr" 
-    width="100%" 
-    height="100%" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy" 
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+        <p class="map-placeholder-text">Localisation approximative sur la carte ci-dessus.</p>
+        
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2844.8876803711287!2d3.498725254443339!3d44.51745398553724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12b36e757d8dad6d%3A0x8b9ed0ae376ae579!2sPl.%20au%20Bl%C3%A9%2C%2048000%20Mende!5e0!3m2!1sfr!2sfr!4v1765655863274!5m2!1sfr!2sfr" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 
-           </div>
+            </div>
             
         </div>
         
     </div>
 </section>
 
-<section id="autres-dates">
+    <section id="autres-dates">
     <div class="container">
 
         <h2>🗓️ Nos Prochaines Dates de Marché</h2>
@@ -251,12 +259,12 @@
     </div>
 </section>
     
-<section id="souvenirs">
+    <section id="souvenirs">
     <div class="container">
         <h2>📸 Souvenirs de Nos Stands et Marchés</h2>
         <p>Découvrez l'ambiance de nos participations passées à travers nos photos. Un aperçu de nos sculptures, bougies et de la bonne humeur !</p>
         
-       <div class="affiche-container">
+        <div class="affiche-container">
     <div class="photo-presentation">
         <img 
             src="images/marches/marche_noel_mende_750.webp" 
@@ -370,9 +378,51 @@
         <h4>Les Veilleurs de Forêt</h4>
     </div>
 
-</div>
+</div> </div> </section> <section id="evenements-videos" class="main-content">
+    <div class="container">
+        
+        <h2>Nos Événements en Vidéo</h2>
+        
+        <p style="text-align: center; margin-bottom: 30px;">
+            Revivez en images les moments forts de nos participations à des marchés d'artisans et salons.
+        </p>
 
-    </main>
+        <div class="video-gallery">
+            
+            <div class="video-item">
+                <h4>L'Ambiance de Notre Stand de Noël</h4>
+                <div class="video-responsive">
+                    <video controls 
+                            preload="none" 
+                            poster="images/miniature-evenement-1.webp" 
+                            width="270"  
+                            height="410"> 
+                        <source src="videos/video-evenement-1.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la balise vidéo.
+                    </video>
+                </div>
+            </div>
+
+            <div class="video-item">
+                <h4>Immersion : Stand Artisanat à Mende</h4>
+                <div class="video-responsive">
+                    <video controls 
+                            preload="none" 
+                            poster="images/miniature-evenement-2.webp" 
+                            width="270"  
+                            height="410"> 
+                        <source src="videos/video-evenement-2.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la balise vidéo.
+                    </video>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</section>
+
+</main>
 
     <footer>
     <div class="container">

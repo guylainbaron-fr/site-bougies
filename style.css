@@ -257,17 +257,15 @@ section {
 }
 
 /* Couleurs de fond alternées */
-#accueil, #atelier, #contact-info {
+#accueil, #atelier, #contact-info, #evenements-videos {
     background-color: var(--couleur-fond-clair);
 }
 
-#bougies, #apropos, #contact-map, #mentions-legales {
+#bougies, #apropos, #contact-map, #mentions-legales, #souvenirs {
     background-color: var(--couleur-accent);
 }
 
 #souvenirs {
-    /* Utilise la variable que nous avons définie pour les fonds secondaires */
-    background-color: var(--couleur-accent); 
     padding: 60px 0; /* Ajouter un espacement vertical pour l'esthétique */
 }
 
@@ -507,7 +505,6 @@ footer a {
     color: var(--couleur-tertiaire);
     font-size: 1.3rem;
 }
-
 
 /* ============================================== */
 /* 09. STYLES SPÉCIFIQUES AUX BOUGIES */
@@ -1377,4 +1374,18 @@ body {
     overflow-x: hidden; /* Empêche le défilement horizontal causé par des marges externes */
     padding: 0; 
     margin: 0; 
+}
+
+/* ============================================== */
+/* Correction d'Accessibilité (Mentions Légales) */
+/* ============================================== */
+
+/* Cible uniquement le lien textuel dans le paragraphe du footer,
+   ignorant les liens d'icônes dans .social-links. */
+footer p a {
+    /* 1. Corrige le Contraste faible (écrase var(--couleur-accent) avec la couleur la plus claire) */
+    color: var(--couleur-fond-clair) !important; 
+    
+    /* 2. Ajoute le soulignement pour l'identification (résout le second problème) */
+    text-decoration: underline !important;
 }
