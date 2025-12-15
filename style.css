@@ -126,7 +126,7 @@ header .container {
 }
 
 .logo {
-    max-height: 85px;
+    max-height: 88px;
     max-width: 100%;
     height: auto;
     display: block;
@@ -1160,12 +1160,13 @@ footer a {
 
 /* 5. Responsive : Empiler sur les petits écrans */
 @media (max-width: 992px) {
-    /* 🚨 CIBLE CRUCIALE : Annuler les marges/paddings du conteneur général */
-    body, .container, section#prochain-evenement {
-        padding: 0 !important;
-        margin: 0 !important;
-        overflow-x: hidden !important; 
-    }
+/* Laissez seulement le body ici pour la réinitialisation de base */
+    body {
+    padding: 0;
+    margin: 0;
+    /* Conservez l'overflow-x si c'est nécessaire pour masquer le défilement horizontal */
+    overflow-x: hidden; 
+}
 
     .market-info-wrapper {
         flex-direction: column; 

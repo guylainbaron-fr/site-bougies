@@ -23,9 +23,6 @@
     
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-    
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" as="style" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -136,7 +133,14 @@
         <div class="logo-image-left">
             <h1>
                 <a href="index.html">
-                    <img src="images/logo-entreprise.webp" alt="Logo J.F. BARON &amp; ANIUTA - Artisanat" class="logo"width="88" height="88">
+                    <img 
+    src="images/logo-entreprise.webp" 
+    srcset="images/logo-entreprise-2x.webp 2x" 
+    alt="Logo J.F. BARON & ANIUTA - Artisanat" 
+    class="logo" 
+    width="88" 
+    height="88"
+>
                 </a>
             </h1>
         </div>
@@ -168,7 +172,7 @@
 <main>
     
     <section id="mentions-legales">
-        <div class="container" style="text-align: left;">
+        <div class="container">
             
             <h2>Mentions Légales</h2>
             
