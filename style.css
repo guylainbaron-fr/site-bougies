@@ -1057,6 +1057,17 @@ footer a {
     text-align: center;
 }
 
+/* Nouveau conteneur pour gérer le défilement du tableau sur mobile */
+.tableau-wrapper {
+    /* Ceci est la clé pour le défilement sur mobile */
+    overflow-x: auto; 
+    /* Ceci garantit que le tableau reste centré s'il est plus étroit que 100% */
+    margin-left: auto;
+    margin-right: auto;
+    /* Prend la même largeur maximale que le tableau si le tableau n'est pas à 100% */
+    max-width: 900px; 
+}
+
 /* ============================================== */
 /* 15. CSS SPECIFIQUE - PAGE EVENEMENTS */
 /* (Styles pour la section #prochain-evenement) */
