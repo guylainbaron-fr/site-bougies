@@ -1298,28 +1298,21 @@ footer p a:hover {
     .article-wrapper { flex-direction: column; text-align: center; padding: 0 15px; }
     .article-image, .article-text-summary { width: 100%; margin-bottom: 20px; }
     
-    .contact-layout { 
-        grid-template-columns: 1fr; 
-        gap: 25px;
-        padding: 0 10px; 
-    }
-    .contact-image-wrapper { 
-        order: -1; 
-        margin-bottom: 5px; 
-        padding: 15px; 
-    }
+    .contact-layout { grid-template-columns: 1fr; gap: 25px; padding: 0 10px; }
+    .contact-image-wrapper { order: -1; margin-bottom: 5px; padding: 15px; }
     .contact-info-map { padding: 15px; }
     
     .atelier-images-grid { grid-template-columns: 1fr; grid-template-rows: auto; max-width: 100%; height: auto; }
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
-/* --- PORTRAIT MOBILE (Centrage parfait des boutons) --- */
+/* --- PORTRAIT MOBILE (Correction Grid & Centrage) --- */
 @media (max-width: 768px) {
     header .container { 
         flex-direction: column; 
         padding: 10px 0;
-        width: 100% !important;
+        width: 100%;
+        overflow: hidden;
     }
 
     nav {
@@ -1328,38 +1321,39 @@ footer p a:hover {
         padding: 0 !important;
     }
 
-    /* On passe en Flex pour centrer dynamiquement les lignes impaires */
     nav ul { 
-        display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important; /* C'est ça qui centre le bouton du bas */
-        gap: 10px !important;
-        padding: 0 15px !important; 
-        margin: 0 auto !important; 
-        width: 100% !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* On garde tes 2 colonnes */
+        gap: 12px !important;
+        padding: 0 15px !important;
+        margin: 0 auto !important;
         list-style: none;
+        width: 100% !important;
+        box-sizing: border-box;
     }
 
-    nav li {
-        /* Calcule 2 colonnes (50% moins l'espace du gap) */
-        flex: 0 0 calc(50% - 10px); 
-        display: flex;
-        justify-content: center;
-    }
-
-    /* Le dernier bouton (Contact) prend toute la largeur pour se centrer seul */
+    /* ASTUCE : Le dernier bouton prend les 2 colonnes pour pouvoir être centré */
     nav li:last-child {
-        flex: 0 0 100% !important;
+        grid-column: 1 / span 2 !important;
+        display: flex !important;
+        justify-content: center !important;
     }
 
     nav a { 
-        min-width: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        min-width: 0 !important; 
         width: 100% !important;
-        max-width: 200px; /* Limite la largeur du bouton seul pour l'esthétique */
-        padding: 10px 5px !important;
+        padding: 12px 5px !important;
         font-size: 0.85rem !important;
         box-sizing: border-box;
-        text-align: center;
+        white-space: nowrap;
+    }
+
+    /* On limite la largeur du bouton "Contact" seul pour qu'il ne soit pas trop long */
+    nav li:last-child a {
+        max-width: 160px;
     }
 
     .logo { width: 80px; height: auto; margin: 0 auto; }
@@ -1367,30 +1361,30 @@ footer p a:hover {
     section { padding: 30px 0; }
 }
 
-/* --- CORRECTIF SPÉCIFIQUE MOBILE PAYSAGE (Tirer à droite / Hauteur) --- */
+/* --- CORRECTIF MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
     header { padding: 5px 0 !important; }
-    
-    .logo { width: 55px !important; }
-    .logo-text-header { display: none !important; } /* Gagne de la place verticale */
+    .logo { width: 50px !important; }
+    .logo-text-header, .separator, .logo-slogan-line { display: none !important; }
 
+    /* En paysage, on passe à 3 colonnes pour libérer de la hauteur */
     nav ul {
-        flex-direction: row !important;
-        justify-content: center !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
         gap: 8px !important;
+        max-height: 140px;
+        overflow-y: auto;
     }
 
-    nav li {
-        flex: 0 0 auto !important; /* Les boutons se mettent les uns après les autres */
+    nav li:last-child {
+        grid-column: span 1 !important; /* Il redevient un bouton normal */
     }
 
     nav a {
-        min-width: 100px !important;
-        padding: 6px 10px !important;
-        font-size: 0.8rem !important;
+        padding: 8px 5px !important;
+        font-size: 0.75rem !important;
     }
-
-    section { padding: 20px 0 !important; }
+    
+    section { padding: 15px 0 !important; }
 }
 
 @media (max-width: 480px) {
