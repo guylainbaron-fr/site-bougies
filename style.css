@@ -2132,3 +2132,53 @@ body {
         filter: brightness(1.1); /* Brille très légèrement */
     }
 }
+
+/* ============================================== */
+/* CORRECTIF SPÉCIFIQUE PAYSAGE MOBILE (LANDSCAPE)*/
+/* ============================================== */
+
+@media (max-width: 932px) and (orientation: landscape) {
+    header .container {
+        display: flex !important;
+        flex-direction: row !important; /* On repasse en ligne pour gagner de la hauteur */
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .logo-and-text-wrapper {
+        flex-direction: row !important;
+        gap: 10px;
+        margin-bottom: 0 !important;
+    }
+
+    .logo {
+        width: 50px !important; /* Logo plus petit pour libérer de la place */
+    }
+
+    nav {
+        width: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    nav ul {
+        flex-direction: row !important; /* Les boutons se mettent côte à côte */
+        gap: 15px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        justify-content: flex-end;
+    }
+
+    nav a {
+        font-size: 0.85rem !important; /* Texte plus petit */
+        padding: 5px 10px !important;
+    }
+
+    /* On réduit les marges des sections pour voir le contenu */
+    section {
+        padding: 15px 0 !important;
+    }
+}
