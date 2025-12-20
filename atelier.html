@@ -23,7 +23,6 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
@@ -31,9 +30,8 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
-
+    <link rel="stylesheet" href="fa/css/brands.min.css">
+    
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
@@ -164,7 +162,7 @@
             <li><a href="index.html">Accueil</a></li>
             <li><a href="bougies.html">Les Bougies</a></li>
             <li><a href="evenements.html">Événements</a></li>
-            <li><a href="atelier.html">L'Atelier</a></li> 
+            <li><a href="atelier.html" class="active">L'Atelier</a></li> 
             <li><a href="apropos.html">À Propos</a></li>
             <li><a href="noel.html">Collection Noël</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -225,32 +223,29 @@
             </p>
 
             <div class="creation-steps-grid">
-                
-                <article class="step-card">
-                    <i class="fas fa-tree"></i>
-                    <h3>1. Choix du Bois Local</h3>
-                    <p>Nous privilégions les essences de bois de la région (Chêne, Hêtre, Pin) issues de forêts gérées durablement, garantissant un circuit court et écologique.</p>
-                </article>
+    <article class="step-card">
+        <span class="step-number">1</span> <h3>Choix du Bois Local</h3>
+        <p>Nous privilégions les essences de la région...</p>
+    </article>
 
-                <article class="step-card">
-                    <i class="fas fa-pencil-ruler"></i>
-                    <h3>2. Conception & Dessin</h3>
-                    <p>Chaque projet, qu'il soit sur mesure ou de notre collection, commence par un dessin détaillé pour capter le mouvement et l'âme de la future sculpture.</p>
-                </article>
+    <article class="step-card">
+        <span class="step-number">2</span>
+        <h3>Conception & Dessin</h3>
+        <p>Chaque projet commence par un dessin détaillé...</p>
+    </article>
 
-                <article class="step-card">
-                    <i class="fas fa-tools"></i>
-                    <h3>3. Sculpture & Découpe</h3>
-                    <p>L'utilisation de ciseaux à bois et de gouges traditionnelles permet de révéler la texture et les veines du bois, conférant à chaque objet son caractère unique.</p>
-                </article>
-                
-                <article class="step-card">
-                    <i class="fas fa-spray-can"></i>
-                    <h3>4. Finitions Naturelles</h3>
-                    <p>Nous appliquons des huiles et des cires naturelles pour protéger le bois sans altérer son aspect brut et sa couleur authentique.</p>
-                </article>
-                
-            </div>
+    <article class="step-card">
+        <span class="step-number">3</span>
+        <h3>Sculpture & Découpe</h3>
+        <p>L'utilisation de ciseaux à bois et de gouges...</p>
+    </article>
+    
+    <article class="step-card">
+        <span class="step-number">4</span>
+        <h3>Finitions Naturelles</h3>
+        <p>Nous appliquons des huiles et des cires naturelles...</p>
+    </article>
+</div>
             
         </div>
     </section>
@@ -265,14 +260,17 @@
             </p>
             
             <div class="demarche-details">
-                <article>
-                    <h3>♻️ Bois Issus de Filières Responsables</h3>
-                    <p>Le bois est une ressource précieuse. Nous nous engageons à n'utiliser que des matériaux provenant de coupes raisonnées et en respectant au maximum le cycle naturel de la forêt.</p>
-                </article>
-                <article>
-                    <h3>🕯️ Parfum à la Vanille Gourmande</h3>
-                    <p>Nos bougies artisanales sont reconnues pour leur senteur unique de vanille gourmande, sélectionnée pour créer une ambiance chaleureuse et réconfortante dans votre foyer.</p>
-                </article>
+    <article class="article-bois">
+        <div class="icon-css icon-bois-vert"></div>
+        <h3>Bois Responsables</h3>
+        <p>Le bois est une ressource précieuse. Nous nous engageons à n'utiliser que des matériaux provenant de coupes raisonnées...</p>
+    </article>
+
+    <article class="article-bougie">
+        <div class="icon-css icon-bougie-jaune"></div>
+        <h3>Vanille Gourmande</h3>
+        <p>Nos bougies artisanales sont reconnues pour leur senteur unique de vanille gourmande, sélectionnée pour créer une ambiance chaleureuse...</p>
+    </article>
             </div>
             
             <a href="contact.html" class="btn">Lancer Votre Projet Sur Mesure</a>

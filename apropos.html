@@ -23,17 +23,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-
+    
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
-
+    <link rel="stylesheet" href="fa/css/brands.min.css">
+    
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
@@ -165,7 +163,7 @@
             <li><a href="bougies.html">Les Bougies</a></li>
             <li><a href="evenements.html">Événements</a></li>
             <li><a href="atelier.html">L'Atelier</a></li>
-            <li><a href="apropos.html">À Propos</a></li>
+            <li><a href="apropos.html" class="active">À Propos</a></li>
             <li><a href="noel.html">Collection Noël</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -174,7 +172,6 @@
 </header>
 
 <main>
-    
     <section id="apropos">
         <div class="container">
             
@@ -197,16 +194,15 @@
                 <a href="contact.html" class="btn">Parler de Votre Projet</a>
             </p>
 
-            ---
-            
-            <section id="presse-article">
+            <section id="presse-article" style="margin-top: 60px;">
                 <h2>On Parle de Nous dans la Presse !</h2>
                 
                 <div class="article-wrapper">
-                    
-                    <img src="images/presse.webp" 
-                        alt="Article de journal Le bois local sublimé par un duo créatif du village" 
-                        class="article-image" width="600" height="800" loading="lazy">
+                    <div class="article-image-container">
+                        <img src="images/presse.webp" 
+                             alt="Article de journal Le bois local sublimé par un duo créatif du village" 
+                             class="article-image" width="600" height="800" loading="lazy">
+                    </div>
                     
                     <div class="article-text-summary">
                         <h3>"Le bois local sublimé par un duo créatif du village" - La Lozère Nouvelle</h3>
@@ -218,35 +214,30 @@
                         <p>
                             <em>« Jean-François et Aniuta forment un duo harmonieux, où le geste de l'un prolonge et sublime celui de l'autre. »</em> C'est une belle reconnaissance de notre engagement à valoriser l'artisanat local et la création originale.
                         </p>
-
                     </div>
-                    
                 </div>
             </section>
-            ---
 
-<h3>Un Mot du Concepteur du Site</h3>
+            <div class="section-dedicace" style="margin-top: 60px;">
+                <h3>Un Mot du Concepteur du Site</h3>
 
-<p class="dedicace">
-    <strong>À mon frère Jean François et à Aniuta :</strong> <br><br>
-    Ce site est un hommage à votre <strong>talent unique</strong> et à la passion que vous partagez pour l'artisanat. Je vous souhaite, à tous les deux, une pleine réussite dans chacun de vos projets.
-    <br><br>
-    Guylain BARON
-</p>
+                <p class="dedicace">
+                    <strong>À mon frère Jean François et à Aniuta :</strong> <br><br>
+                    Ce site est un hommage à votre <strong>talent unique</strong> et à la passion que vous partagez pour l'artisanat. Je vous souhaite, à tous les deux, une pleine réussite dans chacun de vos projets.
+                    <br><br>
+                    Guylain BARON
+                </p>
 
-<div class="concepteur-photo" style="margin: 20px auto; max-width: 300px;">
+                <div class="concepteur-photo">
     <img src="images/guylain-et-jeanfrancois.webp" 
-    alt="Photo de Guylain Baron et Jean François Baron" 
-    title="Guylain sur le tracteur, Jean-François pousse (Souvenir d'enfance)" 
-    style="width: 100%; height: auto; border-radius: 8px;"
-    width="480" 
-    height="373" 
-    loading="lazy">
+         alt="Photo de Guylain Baron et Jean François Baron" 
+         title="Guylain sur le tracteur, Jean-François pousse (Souvenir d'enfance)"
+         class="photo-souvenir">
 </div>
+            </div>
             
         </div>
     </section>
-
 </main>
 
 <footer>
@@ -274,6 +265,26 @@
         </p>
     </div>
 </footer>
+
+<script>
+    const container = document.querySelector('.article-image-container');
+    const img = document.querySelector('.article-image');
+
+    if (container && img) {
+        container.addEventListener('mousemove', (e) => {
+            // Calcule la position de la souris pour déplacer le zoom
+            const x = (e.offsetX / container.offsetWidth) * 100;
+            const y = (e.offsetY / container.offsetHeight) * 100;
+            
+            img.style.transformOrigin = `${x}% ${y}%`;
+        });
+
+        container.addEventListener('mouseleave', () => {
+            // Remet l'image au centre quand on quitte le cadre
+            img.style.transformOrigin = 'center center';
+        });
+    }
+</script>
 
 </body>
 </html>

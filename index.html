@@ -23,7 +23,6 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
@@ -31,8 +30,7 @@
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
+    <link rel="stylesheet" href="fa/css/brands.min.css">
 
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -161,7 +159,7 @@
     </div>
     <nav>
         <ul>
-            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html" class="active">Accueil</a></li>
             <li><a href="bougies.html">Les Bougies</a></li>
             <li><a href="evenements.html">Événements</a></li>
             <li><a href="atelier.html">L'Atelier</a></li>
@@ -198,70 +196,44 @@
 </section>
 
 <main>
-    
     <section id="accueil">
-        <div class="container">
-            
-                <div class="section-top-image">
-                    <img 
-    src="images/accueil-h2-1.webp" 
-    alt="Image illustrant l'art du bois et des bougies" 
-    class="intro-image-1"
-    width="600"
-    height="669"
-    loading="lazy" >
-                </div>
-                            <h2>L'Art du Bois et le Parfum des Sens.</h2>              
-            <p>
-                Découvrez l'harmonie parfaite entre la chaleur du bois sculpté et les senteurs envoûtantes de nos créations artisanales. Chaque pièce raconte une histoire de passion et de nature.
-            </p>
-            <a href="bougies.html" class="btn">Découvrir les Bougies</a> 
-        </div>
+        <div class="container">
+            <div class="section-top-image">
+                <img src="images/accueil-h2-1.webp" alt="Image illustrant l'art du bois et des bougies" class="intro-image-1" width="600" height="669" loading="lazy">
+            </div>
+            <h2>L'Art du Bois et le Parfum des Sens.</h2>              
+            <p>
+                Découvrez l'harmonie parfaite entre la chaleur du bois sculpté et les senteurs envoûtantes de nos créations artisanales. Chaque pièce raconte une histoire de passion et de nature.
+            </p>
+            <a href="bougies.html" class="btn">Découvrir les Bougies</a> 
+        </div>
     </section>
 
     <section id="atelier">
-        <div class="container">
-                <div class="section-top-image">
-                    <img 
-    src="images/accueil-h2-2.webp" 
-    alt="Vue intérieure de l'atelier de création" 
-    class="intro-image-2"
-    width="600"
-    height="800"
-    loading="lazy" 
->
-                </div>
-                            <h2>Notre Atelier : Là où la Magie Opère</h2>
-            <p>
-                Situé à Chasseradès, au cœur de la Lozère, notre atelier est le lieu de rencontre entre la matière brute (bois locaux) et notre savoir-faire ancestral. Venez découvrir notre processus de création, de la première découpe à la dernière finition.
-            </p>
-            <div class="atelier-details">
-                </div>
-            <a href="atelier.html" class="btn">Visiter l'Atelier</a>
-        </div>
-    </section>
+        <div class="container">
+            <div class="section-top-image">
+                <img src="images/accueil-h2-2.webp" alt="Vue intérieure de l'atelier de création" class="intro-image-2" width="600" height="800" loading="lazy">
+            </div>
+            <h2>Notre Atelier : Là où la Magie Opère</h2>
+            <p>
+                Situé à Chasseradès, au cœur de la Lozère, notre atelier est le lieu de rencontre entre la matière brute (bois locaux) et notre savoir-faire ancestral. Venez découvrir notre processus de création, de la première découpe à la dernière finition.
+            </p>
+            <a href="atelier.html" class="btn">Visiter l'Atelier</a>
+        </div>
+    </section>
 
     <section id="apropos">
-        <div class="container">
-                <div class="section-top-image">
-                    <img 
-    src="images/accueil-h2-3.webp" 
-    alt="Portrait de l'artisan Jean-François BARON" 
-    class="intro-image-3"
-    width="600"
-    height="669"
-    loading="lazy" 
->
-                </div>
-                            <h2>À Propos de l'Artisan et Notre Histoire</h2>
-            <p>
-                Artisans passionnés, Jean François & Aniuta se consacrent au travail du bois depuis de nombreuses années. Chaque pièce est le fruit d'une démarche respectueuse du matériau et d'une recherche d'esthétisme unique. Nous privilégions les essences locales et les finitions naturelles.
-            </p>
-<div class="cta-wrapper">
-    <a href="apropos.html" class="btn">En Savoir Plus sur Nous</a> 
-</div>
-    </section>
-
+        <div class="container">
+            <div class="section-top-image">
+                <img src="images/accueil-h2-3.webp" alt="Portrait de l'artisan Jean-François BARON" class="intro-image-3" width="600" height="669" loading="lazy">
+            </div>
+            <h2>À Propos de l'Artisan et Notre Histoire</h2>
+            <p>
+                Artisans passionnés, Jean François & Aniuta se consacrent au travail du bois depuis de nombreuses années. Chaque pièce est le fruit d'une démarche respectueuse du matériau et d'une recherche d'esthétisme unique. Nous privilégions les essences locales et les finitions naturelles.
+            </p>
+            <a href="apropos.html" class="btn">En Savoir Plus sur Nous</a> 
+        </div>
+    </section>
 </main>
 
 <footer>

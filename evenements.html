@@ -23,17 +23,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-
+    
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
-
+    <link rel="stylesheet" href="fa/css/brands.min.css">
+    
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
@@ -163,7 +161,7 @@
         <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="bougies.html">Les Bougies</a></li>
-            <li><a href="evenements.html">Événements</a></li>
+            <li><a href="evenements.html" class="active">Événements</a></li>
             <li><a href="atelier.html">L'Atelier</a></li>
             <li><a href="apropos.html">À Propos</a></li>
             <li><a href="noel.html">Collection Noël</a></li>
@@ -174,8 +172,20 @@
 </header>
 
     <main>
+
+    <section id="attente-date"> <div class="container">
+        <div class="event-empty">
+            <div class="event-empty-icon">
+    <div class="css-heart"></div>
+</div>
+            <h3>De nouvelles dates arrivent bientôt !</h3>
+            <p>Nous préparons actuellement nos prochaines sorties artisanales.</p>
+            <a href="contact.html" class="btn-contact-simple">Nous contacter</a>
+        </div>
+    </div>
+</section>
     
-    <section id="prochain-evenement"> 
+    <section id="prochain-evenement" class="hidden"> 
     <div class="container">
         
         <h2>🗓️ Notre Prochain Événement : Marché de Noël de Mende</h2>
@@ -236,33 +246,25 @@
 
     <section id="autres-dates">
     <div class="container">
-
-        <h2>🗓️ Nos Prochaines Dates de Marché</h2>
-        <p>Venez échanger avec nous et découvrir nos créations en direct. Voici où nous serons prochainement :</p>
+        <h2>Nos Prochaines Dates de Marché</h2>
+        <p>Venez échanger avec nous et découvrir nos créations en direct.</p>
         
-        <div class="tableau-wrapper"> 
-            <table class="tableau-evenements">
-                <thead>
-                    <tr>
-                        <th>Événement</th>
-                        <th>Date</th>
-                        <th>Lieu(x)</th>
-                        <th>Horaires</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Marché de Noël de Mende (48)</strong></td>
-                        <td><strong>Ven. 12, Sam. 13 et Dim. 14 Décembre 2025</strong></td> 
-                        <td>Place et halle au Blé & chapelle des pénitents</td>
-                        <td>
-                            Ven. : 14h00 - 19h00 <br>
-                            Sam. & Dim. : 09h00 - 19h00
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="events-grid">
+            
+
+            <div class="event-card event-past">
+                <div class="event-date">
+                    <span class="day">12-14</span>
+                    <span class="month">Déc.</span>
+                </div>
+                <div class="event-details">
+                    <h3>Marché de Noël de Mende (48)</h3>
+                    <p><strong>Lieu :</strong> Place et halle au Blé & chapelle des pénitents</p>
+                    <p><strong>Horaires :</strong> Ven: 14h-19h | Sam & Dim: 09h-19h</p>
+                </div>
+            </div>
         </div>
+
         <p class="note-evenements">
             *N'hésitez pas à nous contacter pour plus de détails sur l'emplacement exact de notre stand.
         </p>

@@ -23,17 +23,15 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://use.fontawesome.com">
 
     <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="style.css"></noscript>
-
+    
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="preload" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.5.2/css/all.css"></noscript>
-
+    <link rel="stylesheet" href="fa/css/brands.min.css">
+    
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
@@ -162,7 +160,7 @@
     <nav>
         <ul>
             <li><a href="index.html">Accueil</a></li>
-            <li><a href="bougies.html">Les Bougies</a></li>
+            <li><a href="bougies.html" class="active">Les Bougies</a></li>
             <li><a href="evenements.html">Événements</a></li>
             <li><a href="atelier.html">L'Atelier</a></li>
             <li><a href="apropos.html">À Propos</a></li>
@@ -175,7 +173,7 @@
 
 <main>
 
-    <section id="bougies">
+<section id="bougies">
     <div class="container">
         <h2>Découvrez nos Bougies Artisanales</h2>
         
@@ -183,16 +181,19 @@
             Chaque bougie Jean François & Aniuta est une invitation à l'évasion olfactive, conçue avec la plus grande exigence. Coulées à la main dans notre atelier en Lozère, elles incarnent notre engagement envers l'artisanat de qualité, le naturel et le respect de l'environnement. Découvrez la différence d'une bougie véritablement artisanale.
         </p>
 
-        <div class="bougies-images-grid">
-            <img 
-                src="images/bougie-tarifs.webp" 
-                alt="Grille des tarifs des bougies" 
-                class="tarifs-image"
-                width="565"   
-                height="800"  
-                loading="eager"     
-                fetchpriority="high"
-            >
+        <div class="bougies-wrapper-seo">
+            
+            <div class="tarifs-block">
+                <img 
+                    src="images/bougie-tarifs.webp" 
+                    alt="Grille des tarifs des bougies" 
+                    class="tarifs-image"
+                    width="565"   
+                    height="800"  
+                    loading="eager"     
+                    fetchpriority="high"
+                >
+            </div>
             
             <div class="tailles-wrapper">
                 <img 
@@ -243,7 +244,7 @@
             <p>Pour profiter au maximum de votre bougie Jean François & Aniuta, suivez cette recommandation :</p>
             
             <ul class="conseils-list">
-                <li><strong>Sécurité :</strong> Ne laissez jamais une bougie allumée sans surveillance et tenez-la hors de portée des enfants et des animaux.</li>
+                <li class="security-alert"><strong>Sécurité :</strong> Ne laissez jamais une bougie allumée sans surveillance et tenez-la hors de portée des enfants et des animaux.</li>
             </ul>
             
             <a href="contact.html" class="btn">Poser une Question</a>
