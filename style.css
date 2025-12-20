@@ -1317,40 +1317,61 @@ footer p a:hover {
 @media (max-width: 768px) {
     header .container { 
         flex-direction: column; 
-        padding: 10px 0;
+        padding: 5px 0;
+        align-items: center;
+        width: 100% !important;
+        box-sizing: border-box;
     }
     
-    /* --- CORRECTIF MENU PAYSAGE --- */
+    /* --- RÉPARATION RADICALE DU MENU (PAYSAGE & PORTRAIT) --- */
     nav { 
         width: 100%; 
-        max-height: 70vh; /* Limite la hauteur à 70% de l'écran */
-        overflow-y: auto; /* Permet de scroller si le menu est trop long */
-        -webkit-overflow-scrolling: touch; /* Scroll fluide sur iPhone */
+        max-height: 180px; 
+        overflow-y: auto;
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     nav ul { 
+        display: flex;
         flex-direction: column; 
-        gap: 8px; /* On réduit un peu l'espace entre les liens */
-        padding: 10px 0;
+        gap: 5px;
+        /* Force le retrait du décalage à droite */
+        padding: 0 !important; 
+        margin: 0 !important; 
+        list-style: none;
+        width: 100%;
+        align-items: center; 
     }
 
-    .tailles-wrapper { flex-direction: column; }
-    .logo-and-text-wrapper { flex-direction: column; text-align: center; margin-bottom: 10px; }
-    .logo-image-left { margin: 0 0 10px 0; }
-    .logo { width: 88px; margin: 0 auto; }
-    
+    nav li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
     nav a { 
-        display: block; 
-        width: 100%; 
-        padding: 8px 0; /* Zone de clic confortable mais compacte */
+        display: inline-block;
+        padding: 8px 20px; 
+        margin: 0 auto;
+        font-size: 0.95rem; /* Un peu plus petit pour le paysage */
+    }
+
+    /* --- LOGO ET TEXTE --- */
+    .logo-and-text-wrapper { 
+        flex-direction: column; 
+        align-items: center; 
+        margin-bottom: 5px; 
     }
     
-    section { padding: 30px 0; }
-    h2 { font-size: 1.6em; }
+    .logo { width: 70px; margin: 0 auto; }
+
+    .tailles-wrapper { flex-direction: column; }
+    section { padding: 25px 0; }
+    h2 { font-size: 1.5em; }
     .demarche-details { flex-direction: column; }
-    
-    /* Sécurité pour le bloc contact déjà présent dans tes essais */
-    .contact-layout { margin: 20px auto; }
+    .contact-layout { margin: 15px auto; }
 }
 
 @media (max-width: 480px) {
@@ -1358,7 +1379,7 @@ footer p a:hover {
     .contact-info-map p:first-of-type strong { font-size: 1.1rem; }
 }
 
-/* --- RESTE DU CODE (Bougies & Accueil) --- */
+/* --- LE RESTE RESTE INCHANGÉ (Bougies / Accueil) --- */
 
 .bougies-wrapper-seo {
     display: flex;
@@ -1373,14 +1394,12 @@ footer p a:hover {
     height: auto; 
     margin: 0 auto;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .tailles-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
-    align-items: center;
 }
 
 .taille-image {
@@ -1388,7 +1407,6 @@ footer p a:hover {
     max-width: 240px; 
     height: auto; 
     border-radius: 12px;
-    transition: all 0.5s ease;
 }
 
 .section-image-accueil { text-align: center; margin-bottom: 30px; }
