@@ -1202,23 +1202,69 @@ footer p a:hover {
 /* ============================================== */
 
 @media (max-width: 992px) {
-    .article-wrapper { flex-direction: column; text-align: center; padding: 0 15px; }
-    .article-image, .article-text-summary { width: 100%; margin-bottom: 20px; }
+    /* --- Articles --- */
+    .article-wrapper { 
+        flex-direction: column !important; 
+        text-align: center; 
+        padding: 0 15px; 
+    }
+    .article-image, .article-text-summary { 
+        width: 100% !important; 
+        margin-bottom: 20px; 
+    }
     
+    /* --- Page Contact (Le correctif) --- */
     .contact-layout { 
-        grid-template-columns: 1fr; 
-        gap: 25px;
-        padding: 0 10px; 
+        display: flex !important; /* On passe en flex pour plus de sécurité sur mobile */
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important; /* Sécurité pour le grid */
+        gap: 20px !important;
+        padding: 0 15px !important; 
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
+
     .contact-image-wrapper { 
-        order: -1; 
-        margin-bottom: 5px; 
-        padding: 15px; 
+        order: -1; /* L'image passe au dessus */
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin-bottom: 10px !important;
     }
-    .contact-info-map { padding: 15px; }
+
+    .contact-image-wrapper img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 12px;
+    }
+
+    .contact-info-map { 
+        width: 100% !important;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre le texte et la carte */
+    }
+
+    /* Force la carte à ne pas dépasser */
+    .contact-info-map iframe {
+        width: 100% !important;
+        height: 300px !important;
+        border-radius: 12px;
+    }
     
-    .atelier-images-grid { grid-template-columns: 1fr; grid-template-rows: auto; max-width: 100%; height: auto; }
-    .atelier-img-large { grid-row: auto; height: 300px; }
+    /* --- Grille Atelier --- */
+    .atelier-images-grid { 
+        display: flex !important;
+        flex-direction: column !important;
+        max-width: 100%; 
+        height: auto; 
+        gap: 15px;
+    }
+    .atelier-img-large { 
+        height: 300px !important; 
+        width: 100% !important;
+    }
 }
 
 /* --- PORTRAIT MOBILE (Correction Alignement Global) --- */
