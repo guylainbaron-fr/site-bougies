@@ -134,7 +134,7 @@ header .container {
     display: flex;
     align-items: center; 
     justify-content: center;
-    flex-wrap: nowrap; /* Empêche le logo de sauter à la ligne sur de petits écrans */
+    flex-wrap: nowrap; 
     gap: 25px; 
     width: 100%;
 }
@@ -222,15 +222,16 @@ nav a {
     padding: 10px 20px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    display: flex; /* Remplacé inline-flex pour un meilleur contrôle */
+    display: flex; 
     align-items: center;
     justify-content: center;
     text-align: center;
-    min-width: 120px; 
+    /* Correction : suppression du min-width fixe qui causait le bug mobile */
+    min-width: 110px; 
     background-color: transparent;
     position: relative;
     z-index: 1;
-    transition: color 0.4s ease, transform 0.3s ease;
+    transition: color 0.4s ease, transform 0.3s ease, border-color 0.3s ease;
     box-sizing: border-box;
     white-space: nowrap;
 }
@@ -1220,7 +1221,7 @@ footer p a:hover {
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
-/* --- PORTRAIT MOBILE (Réparation Alignement Logo/Menu) --- */
+/* --- PORTRAIT MOBILE (Correction Alignement Global) --- */
 @media (max-width: 768px) {
     header {
         padding: 10px 0 !important;
@@ -1230,30 +1231,30 @@ footer p a:hover {
     header .container { 
         display: flex !important;
         flex-direction: column !important;
-        align-items: flex-start !important; /* ON ALIGNE TOUT À GAUCHE D'ABORD */
+        align-items: center !important; /* RECENTRAGE pour éviter le flottement à gauche */
         padding: 0 15px !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* On force la signature à s'aligner sur le bord gauche des boutons */
+    /* Signature Logo + Texte recentrée */
     .logo-and-text-wrapper {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: flex-start !important; 
+        justify-content: center !important; 
         align-items: center !important;
-        gap: 15px !important;
+        gap: 12px !important;
         width: 100% !important;
-        margin: 0 0 20px 0 !important; /* On enlève les marges auto */
+        margin: 0 0 15px 0 !important;
     }
 
     .logo { width: 55px !important; height: auto !important; flex-shrink: 0; }
     .logo-text-header { text-align: left !important; }
-    .logo-title { font-size: 1.1rem !important; margin: 0 !important; }
-    .logo-slogan-line { font-size: 0.7rem !important; }
-    .separator { margin: 5px 0 !important; width: 40px !important; }
+    .logo-title { font-size: 1.05rem !important; margin: 0 !important; }
+    .logo-slogan-line { font-size: 0.65rem !important; }
+    .separator { margin: 4px 0 !important; width: 35px !important; }
 
-    /* MENU : On remplit l'espace */
+    /* MENU : Grille propre à 2 colonnes */
     nav {
         width: 100% !important;
         padding: 0 !important;
@@ -1262,8 +1263,8 @@ footer p a:hover {
 
     nav ul { 
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 10px !important;
         padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
@@ -1272,10 +1273,9 @@ footer p a:hover {
 
     /* Centrage du bouton Contact sur ses 2 colonnes */
     nav li:last-child {
-        grid-column: 1 / span 2 !important;
+        grid-column: span 2 !important;
         display: flex !important;
         justify-content: center !important;
-        margin-top: 5px;
     }
 
     nav a { 
@@ -1283,24 +1283,27 @@ footer p a:hover {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
-        min-width: 0 !important; /* ANNULE LE DÉCALAGE À DROITE */
+        min-width: 0 !important; /* Supprime le débordement à droite */
         padding: 12px 5px !important;
-        font-size: 0.82rem !important;
+        font-size: 0.8rem !important;
         box-sizing: border-box !important;
+        border-radius: 6px !important;
     }
 
     nav li:last-child a {
-        width: 180px !important;
+        max-width: 180px !important; /* Évite que le bouton contact soit trop étiré */
     }
+
+    section { padding: 30px 0; }
 }
 
 /* --- MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
     header .container { padding: 5px 15px !important; }
-    .logo-and-text-wrapper { margin-bottom: 10px !important; }
+    .logo-and-text-wrapper { margin-bottom: 8px !important; }
     
     nav ul {
-        grid-template-columns: 1fr 1fr 1fr !important; /* 3 cols pour gagner de la hauteur */
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 colonnes pour sauver de la place */
     }
     nav li:last-child { grid-column: span 1 !important; }
     nav a { padding: 8px 5px !important; font-size: 0.75rem !important; }
@@ -1310,6 +1313,7 @@ footer p a:hover {
 html, body {
     max-width: 100% !important;
     overflow-x: hidden !important;
+    position: relative;
 }
 
 /* --- RESTE DU CODE (Bougies & Accueil) --- */
@@ -1335,6 +1339,16 @@ html, body {
     justify-content: center;
     gap: 20px;
     align-items: center;
+}
+
+/* Ajustement mobile pour les images de tailles */
+@media (max-width: 768px) {
+    .tailles-wrapper {
+        flex-direction: column;
+    }
+    .taille-image {
+        max-width: 280px;
+    }
 }
 
 .taille-image {
