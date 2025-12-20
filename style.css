@@ -1220,36 +1220,40 @@ footer p a:hover {
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
-/* --- PORTRAIT MOBILE --- */
+/* --- PORTRAIT MOBILE (Réparation Alignement Logo/Menu) --- */
 @media (max-width: 768px) {
-    
     header {
         padding: 10px 0 !important;
+        width: 100% !important;
     }
 
     header .container { 
-        display: block !important; /* On casse le flex qui centre mal */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important; /* ON ALIGNE TOUT À GAUCHE D'ABORD */
         padding: 0 15px !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* Signature Logo + Texte : On les aligne à gauche pour coller à la grille */
+    /* On force la signature à s'aligner sur le bord gauche des boutons */
     .logo-and-text-wrapper {
         display: flex !important;
         flex-direction: row !important;
+        justify-content: flex-start !important; 
         align-items: center !important;
-        justify-content: flex-start !important; /* Aligné à gauche */
         gap: 15px !important;
         width: 100% !important;
-        margin-bottom: 20px !important;
+        margin: 0 0 20px 0 !important; /* On enlève les marges auto */
     }
 
-    .logo { width: 55px !important; height: auto !important; }
-    .logo-title { font-size: 1.1rem !important; }
+    .logo { width: 55px !important; height: auto !important; flex-shrink: 0; }
+    .logo-text-header { text-align: left !important; }
+    .logo-title { font-size: 1.1rem !important; margin: 0 !important; }
     .logo-slogan-line { font-size: 0.7rem !important; }
+    .separator { margin: 5px 0 !important; width: 40px !important; }
 
-    /* LE MENU : On force la grille à occuper 100% sans marges */
+    /* MENU : On remplit l'espace */
     nav {
         width: 100% !important;
         padding: 0 !important;
@@ -1259,18 +1263,19 @@ footer p a:hover {
     nav ul { 
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 10px !important;
+        gap: 8px !important;
         padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
         list-style: none !important;
     }
 
-    /* Centrage parfait du dernier bouton */
+    /* Centrage du bouton Contact sur ses 2 colonnes */
     nav li:last-child {
         grid-column: 1 / span 2 !important;
         display: flex !important;
         justify-content: center !important;
+        margin-top: 5px;
     }
 
     nav a { 
@@ -1278,39 +1283,33 @@ footer p a:hover {
         justify-content: center !important;
         align-items: center !important;
         width: 100% !important;
+        min-width: 0 !important; /* ANNULE LE DÉCALAGE À DROITE */
         padding: 12px 5px !important;
-        font-size: 0.85rem !important;
-        min-width: 0 !important; /* Force l'annulation du 120px */
+        font-size: 0.82rem !important;
         box-sizing: border-box !important;
     }
 
     nav li:last-child a {
-        width: 180px !important; /* Taille fixe pour le bouton contact */
+        width: 180px !important;
     }
 }
 
-/* --- MOBILE PAYSAGE --- */
+/* --- MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
+    header .container { padding: 5px 15px !important; }
     .logo-and-text-wrapper { margin-bottom: 10px !important; }
     
     nav ul {
-        grid-template-columns: 1fr 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr 1fr !important; /* 3 cols pour gagner de la hauteur */
     }
-
-    nav li:last-child {
-        grid-column: span 1 !important;
-    }
-
-    nav a {
-        padding: 8px 5px !important;
-        font-size: 0.75rem !important;
-    }
+    nav li:last-child { grid-column: span 1 !important; }
+    nav a { padding: 8px 5px !important; font-size: 0.75rem !important; }
 }
 
-/* Verrouillage anti-débordement */
+/* Blocage définitif du scroll horizontal parasite */
 html, body {
+    max-width: 100% !important;
     overflow-x: hidden !important;
-    width: 100% !important;
 }
 
 /* --- RESTE DU CODE (Bougies & Accueil) --- */
