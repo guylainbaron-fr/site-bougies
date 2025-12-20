@@ -1298,103 +1298,120 @@ footer p a:hover {
     .article-wrapper { flex-direction: column; text-align: center; padding: 0 15px; }
     .article-image, .article-text-summary { width: 100%; margin-bottom: 20px; }
     
-    .contact-layout { grid-template-columns: 1fr; gap: 25px; padding: 0 10px; }
-    .contact-image-wrapper { order: -1; margin-bottom: 5px; padding: 15px; }
+    .contact-layout { 
+        grid-template-columns: 1fr; 
+        gap: 25px;
+        padding: 0 10px; 
+    }
+    .contact-image-wrapper { 
+        order: -1; 
+        margin-bottom: 5px; 
+        padding: 15px; 
+    }
     .contact-info-map { padding: 15px; }
     
     .atelier-images-grid { grid-template-columns: 1fr; grid-template-rows: auto; max-width: 100%; height: auto; }
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
-/* --- PORTRAIT MOBILE (Structure & Centrage) --- */
+/* --- PORTRAIT MOBILE (Correction Alignement & Centrage) --- */
 @media (max-width: 768px) {
+    /* ÉTAPE 1 : On définit une marge commune de 15px pour TOUT le header */
     header .container { 
         flex-direction: column; 
-        padding: 10px 0;
-        width: 100%;
+        padding: 15px 15px !important; /* Aligne logo et menu sur la même bordure */
+        width: 100% !important;
+        box-sizing: border-box;
     }
 
-    /* On garde l'identité visuelle côte à côte */
+    /* ÉTAPE 2 : Signature côte à côte préservée */
     .logo-and-text-wrapper {
+        display: flex !important;
         flex-direction: row !important;
         justify-content: center;
-        gap: 15px;
+        align-items: center;
+        gap: 12px;
         width: 100%;
-        padding: 0 10px;
+        margin-bottom: 15px;
     }
 
-    .logo { width: 65px !important; }
-    .logo-title { font-size: 1.1rem !important; }
-    .logo-slogan-line { font-size: 0.7rem !important; }
+    .logo { 
+        width: 55px !important; 
+        height: auto !important; 
+        flex-shrink: 0;
+    }
 
+    .logo-text-header {
+        text-align: left;
+    }
+
+    .logo-title { font-size: 1.05rem !important; margin: 0; }
+    .logo-slogan-line { font-size: 0.65rem !important; white-space: nowrap; }
+    .separator { margin: 4px 0 !important; width: 30px !important; }
+
+    /* ÉTAPE 3 : Menu Grille parfaitement calé */
     nav {
         width: 100% !important;
-        margin-top: 15px !important;
+        margin: 0 !important;
     }
 
     nav ul { 
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* Tes 2 colonnes */
+        grid-template-columns: 1fr 1fr !important; /* 2 colonnes */
         gap: 10px !important;
-        padding: 0 15px !important; /* Équilibre le centrage gauche/droite */
+        padding: 0 !important; /* Le padding est déjà géré par le container */
         margin: 0 !important;
-        list-style: none;
         width: 100% !important;
+        list-style: none;
         box-sizing: border-box;
     }
 
-    /* FORCE LE CENTRAGE DU DERNIER BOUTON */
+    /* ÉTAPE 4 : Centrage du bouton Contact seul en bas */
     nav li:last-child {
-        grid-column: 1 / span 2 !important; /* Prend toute la largeur */
+        grid-column: 1 / span 2 !important;
         display: flex !important;
-        justify-content: center !important; /* Centre le bouton dans cet espace */
+        justify-content: center !important;
     }
 
     nav a { 
         display: flex !important;
-        align-items: center;
         justify-content: center;
+        align-items: center;
         width: 100% !important;
-        min-width: 0 !important;
         padding: 10px 5px !important;
-        font-size: 0.85rem !important;
+        font-size: 0.8rem !important;
+        min-width: 0 !important;
         box-sizing: border-box;
     }
 
-    /* Le bouton contact ne doit pas faire toute la largeur pour rester élégant */
     nav li:last-child a {
-        width: auto !important;
-        min-width: 160px !important;
+        max-width: 160px; /* Largeur élégante pour le bouton seul */
     }
 
     section { padding: 30px 0; }
 }
 
-/* --- MOBILE PAYSAGE (Correction du décalage à droite) --- */
+/* --- CORRECTIF MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
-    header .container {
-        padding: 5px 0 !important;
-    }
-
-    /* On réduit un peu pour que tout tienne en hauteur */
-    .logo { width: 50px !important; }
-    .logo-title { font-size: 1rem !important; }
+    header .container { padding: 8px 15px !important; }
+    
+    .logo { width: 45px !important; }
+    .logo-title { font-size: 0.95rem !important; }
 
     nav ul {
+        grid-template-columns: 1fr 1fr 1fr !important; /* 3 colonnes pour libérer de la hauteur */
         gap: 8px !important;
     }
 
+    nav li:last-child { grid-column: span 1 !important; }
+
     nav a {
         padding: 6px 10px !important;
-        font-size: 0.8rem !important;
+        font-size: 0.75rem !important;
     }
-
-    /* Empêche le contenu de "tirer" à droite à cause de l'overflow */
-    body, html {
-        overflow-x: hidden;
-        position: relative;
-        width: 100%;
-    }
+    
+    /* Empêche tout mouvement latéral de l'écran */
+    body { overflow-x: hidden !important; }
 }
 
 @media (max-width: 480px) {
