@@ -1317,55 +1317,45 @@ footer p a:hover {
 @media (max-width: 768px) {
     header .container { 
         flex-direction: column; 
-        padding: 5px 0;
+        padding: 5px 0; /* Réduit pour gagner de la place en paysage */
         align-items: center;
-        width: 100% !important;
-        box-sizing: border-box;
     }
     
-    /* --- RÉPARATION RADICALE DU MENU (PAYSAGE & PORTRAIT) --- */
+    /* --- RÉPARATION NAVIGATION MOBILE & PAYSAGE --- */
     nav { 
         width: 100%; 
-        max-height: 180px; 
-        overflow-y: auto;
-        margin: 0 !important;
-        padding: 0 !important;
+        max-height: 200px; /* Empêche le menu de manger tout l'écran en paysage */
+        overflow-y: auto;  /* Permet de scroller les boutons si besoin */
+        margin: 0 auto;
     }
     
     nav ul { 
-        display: flex;
         flex-direction: column; 
-        gap: 5px;
-        /* Force le retrait du décalage à droite */
-        padding: 0 !important; 
-        margin: 0 !important; 
+        gap: 5px;      /* Espace serré pour que tout rentre */
+        padding: 0;    /* SUPPRIME l'espace blanc à droite */
+        margin: 0;     /* Reset des marges par défaut */
         list-style: none;
-        width: 100%;
-        align-items: center; 
-    }
-
-    nav li {
-        width: 100%;
-        text-align: center;
-        margin: 0;
-        padding: 0;
+        align-items: center; /* Centre les boutons horizontalement */
     }
 
     nav a { 
-        display: inline-block;
-        padding: 8px 20px; 
+        display: block; 
+        width: fit-content; /* Le bouton ne prend que la place de son texte */
+        padding: 6px 20px; 
+        text-align: center;
         margin: 0 auto;
-        font-size: 0.95rem; /* Un peu plus petit pour le paysage */
     }
 
-    /* --- LOGO ET TEXTE --- */
+    /* --- AJUSTEMENTS LOGO ET TEXTE --- */
     .logo-and-text-wrapper { 
         flex-direction: column; 
-        align-items: center; 
+        text-align: center; 
         margin-bottom: 5px; 
+        align-items: center;
     }
     
-    .logo { width: 70px; margin: 0 auto; }
+    .logo-image-left { margin: 0 0 5px 0; }
+    .logo { width: 70px; margin: 0 auto; } /* Logo plus discret sur mobile */
 
     .tailles-wrapper { flex-direction: column; }
     section { padding: 25px 0; }
@@ -1379,7 +1369,7 @@ footer p a:hover {
     .contact-info-map p:first-of-type strong { font-size: 1.1rem; }
 }
 
-/* --- LE RESTE RESTE INCHANGÉ (Bougies / Accueil) --- */
+/* --- RESTE DU CODE (Bougies & Accueil) --- */
 
 .bougies-wrapper-seo {
     display: flex;
@@ -1394,12 +1384,14 @@ footer p a:hover {
     height: auto; 
     margin: 0 auto;
     border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
 .tailles-wrapper {
     display: flex;
     justify-content: center;
     gap: 20px;
+    align-items: center;
 }
 
 .taille-image {
@@ -1407,6 +1399,7 @@ footer p a:hover {
     max-width: 240px; 
     height: auto; 
     border-radius: 12px;
+    transition: all 0.5s ease;
 }
 
 .section-image-accueil { text-align: center; margin-bottom: 30px; }
@@ -2130,55 +2123,5 @@ body {
     50% {
         transform: rotate(-45deg) scale(1.15); /* Pulsation légère */
         filter: brightness(1.1); /* Brille très légèrement */
-    }
-}
-
-/* ============================================== */
-/* CORRECTIF SPÉCIFIQUE PAYSAGE MOBILE (LANDSCAPE)*/
-/* ============================================== */
-
-@media (max-width: 932px) and (orientation: landscape) {
-    header .container {
-        display: flex !important;
-        flex-direction: row !important; /* On repasse en ligne pour gagner de la hauteur */
-        justify-content: space-between;
-        align-items: center;
-        padding: 5px 15px !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    .logo-and-text-wrapper {
-        flex-direction: row !important;
-        gap: 10px;
-        margin-bottom: 0 !important;
-    }
-
-    .logo {
-        width: 50px !important; /* Logo plus petit pour libérer de la place */
-    }
-
-    nav {
-        width: auto !important;
-        max-height: none !important;
-        overflow: visible !important;
-    }
-
-    nav ul {
-        flex-direction: row !important; /* Les boutons se mettent côte à côte */
-        gap: 15px !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        justify-content: flex-end;
-    }
-
-    nav a {
-        font-size: 0.85rem !important; /* Texte plus petit */
-        padding: 5px 10px !important;
-    }
-
-    /* On réduit les marges des sections pour voir le contenu */
-    section {
-        padding: 15px 0 !important;
     }
 }
