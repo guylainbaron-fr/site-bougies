@@ -1317,56 +1317,101 @@ footer p a:hover {
 @media (max-width: 768px) {
     header .container { 
         flex-direction: column; 
-        padding: 5px 0; /* Réduit pour gagner de la place en paysage */
+        padding: 5px 0;
         align-items: center;
+        width: 100% !important;
     }
     
-    /* --- RÉPARATION NAVIGATION MOBILE & PAYSAGE --- */
+    /* --- RÉPARATION NAVIGATION MOBILE --- */
     nav { 
-        width: 100%; 
-        max-height: 200px; /* Empêche le menu de manger tout l'écran en paysage */
-        overflow-y: auto;  /* Permet de scroller les boutons si besoin */
-        margin: 0 auto;
+        width: 100% !important; 
+        margin: 0 !important;
+        padding: 0 !important;
     }
     
     nav ul { 
-        flex-direction: column; 
-        gap: 5px;      /* Espace serré pour que tout rentre */
-        padding: 0;    /* SUPPRIME l'espace blanc à droite */
-        margin: 0;     /* Reset des marges par défaut */
+        /* On annule la grille ici pour mieux contrôler le centrage paysage */
+        display: flex !important;
+        flex-direction: column !important; 
+        gap: 8px !important;
+        padding: 0 !important; 
+        margin: 0 auto !important; 
         list-style: none;
-        align-items: center; /* Centre les boutons horizontalement */
+        width: 100% !important;
+        align-items: center !important; 
+    }
+
+    nav li {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     nav a { 
-        display: block; 
-        width: fit-content; /* Le bouton ne prend que la place de son texte */
-        padding: 6px 20px; 
-        text-align: center;
-        margin: 0 auto;
+        display: inline-block !important;
+        min-width: 160px !important; /* Largeur fixe pour que tous les boutons soient identiques */
+        padding: 10px !important; 
+        margin: 0 auto !important;
+        font-size: 0.9rem !important;
     }
 
-    /* --- AJUSTEMENTS LOGO ET TEXTE --- */
+    /* --- LOGO ET TEXTE --- */
     .logo-and-text-wrapper { 
         flex-direction: column; 
-        text-align: center; 
-        margin-bottom: 5px; 
-        align-items: center;
+        align-items: center; 
+        margin-bottom: 10px; 
     }
     
-    .logo-image-left { margin: 0 0 5px 0; }
-    .logo { width: 70px; margin: 0 auto; } /* Logo plus discret sur mobile */
+    .logo { width: 75px !important; height: auto !important; margin: 0 auto; }
+    .logo-title { font-size: 1.2rem !important; }
 
     .tailles-wrapper { flex-direction: column; }
-    section { padding: 25px 0; }
-    h2 { font-size: 1.5em; }
-    .demarche-details { flex-direction: column; }
-    .contact-layout { margin: 15px auto; }
+    section { padding: 30px 0; }
+    h2 { font-size: 1.6em; }
+}
+
+/* --- CORRECTIF SPÉCIFIQUE PAYSAGE (Le téléphone couché) --- */
+@media (max-width: 950px) and (orientation: landscape) {
+    header { padding: 5px 0 !important; }
+    
+    header .container {
+        flex-direction: row !important; /* Logo à gauche, menu à droite */
+        justify-content: space-around !important;
+        gap: 10px !important;
+    }
+
+    .logo-and-text-wrapper { 
+        flex-direction: row !important; 
+        margin: 0 !important;
+    }
+
+    .logo { width: 50px !important; }
+    .separator, .logo-slogan-line { display: none; } /* On cache le slogan pour gagner de la place */
+
+    nav { 
+        width: auto !important; 
+        max-height: 120px; /* Petit scroll interne si trop de boutons */
+        overflow-y: auto;
+    }
+
+    nav ul { 
+        flex-direction: row !important; /* Boutons côte à côte */
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: auto !important;
+    }
+
+    nav a { 
+        min-width: 100px !important; 
+        padding: 5px 10px !important; 
+        font-size: 0.8rem !important;
+    }
 }
 
 @media (max-width: 480px) {
     .contact-info-map p:first-of-type { padding: 15px; font-size: 0.95rem; }
-    .contact-info-map p:first-of-type strong { font-size: 1.1rem; }
 }
 
 /* --- RESTE DU CODE (Bougies & Accueil) --- */
