@@ -1093,116 +1093,99 @@ footer p a:hover {
     max-width: 800px;
     text-align: center;
     font-weight: normal; 
-    padding: 0 20px; /* Marge de sécurité pour le texte */
+    padding: 0 20px;
 }
 
 .contact-layout {
     display: grid;
-    /* On descend à 260px pour laisser de la place aux marges en portrait */
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* Correction : on utilise 1fr 1fr pour le PC, le responsive gérera le reste */
+    grid-template-columns: 1fr 1fr; 
     gap: 30px;
     margin: 40px auto;
     max-width: 1000px;
-    padding: 0 15px; /* Équilibre le centrage sur mobile */
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
-/* --- LE CADRE DE L'IMAGE --- */
 .contact-image-wrapper {
     background-color: white;
-    padding: 25px; /* Réduit pour ne pas étouffer l'image en portrait */
+    padding: 20px; 
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.4s ease;
+    height: fit-content;
 }
 
 .contact-image {
     width: 100%;
-    height: auto; /* Empêche la déformation */
+    height: auto;
     border-radius: 8px;
     object-fit: cover;
     display: block;
     filter: sepia(0.15) brightness(0.9) contrast(0.95);
-    transition: filter 0.6s ease;
-}
-
-.contact-image-wrapper:hover .contact-image {
-    filter: sepia(0) brightness(1.05) contrast(1.05);
 }
 
 .contact-info-map {
     background-color: white;
-    padding: 25px; /* Ajusté pour le portrait */
+    padding: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* --- BLOC COORDONNÉES --- */
 .contact-info-map p:first-of-type {
     background-color: #f8f1e9; 
     color: #4e342e; 
-    padding: 25px; /* Réduit pour laisser respirer le texte */
+    padding: 20px;
     border-radius: 8px;
     border: 2px dashed #d7c4b5; 
-    line-height: 1.8;
-    word-wrap: break-word; /* Sécurité pour les longs emails */
+    line-height: 1.6;
+    word-wrap: break-word;
+    margin: 0;
 }
 
 .contact-info-map p:first-of-type strong {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #2c1e14;
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
     border-bottom: 1px solid rgba(0,0,0,0.05);
-    padding-bottom: 8px;
+    padding-bottom: 5px;
 }
 
-.contact-info-map p:first-of-type a {
-    color: #8B4513; 
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.contact-info-map i {
-    display: none;
-}
-
-/* --- BLOC HUMOUR --- */
 .contact-note {
-    margin: 30px 0;
-    padding: 20px;
-    background-color: #ffffff; 
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #fdfdfd; 
     border-radius: 8px;
-    border: 1px solid #eee; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03); 
     font-style: italic;
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #5d4037;
-    line-height: 1.5;
     text-align: center; 
 }
 
-/* --- CARTE GOOGLE --- */
 .map-container {
-    margin-top: 25px;
     border-radius: 8px;
     overflow: hidden;
+    width: 100%;
 }
 
 .map-container iframe {
     width: 100%;
-    height: 300px; /* Hauteur réduite pour mobile */
+    height: 300px;
     border: 0;
     display: block;
 }
 
-/* ============================================== */
-/* 12. RESPONSIVE GÉNÉRAL ET MEDIA QUERIES        */
-/* ============================================== */
+/* ============================================================
+   12. RESPONSIVE GÉNÉRAL ET MEDIA QUERIES
+   ============================================================ */
 
+/* --- TABLETTES ET GRANDS MOBILES --- */
 @media (max-width: 992px) {
-    /* --- Articles --- */
+    /* Articles */
     .article-wrapper { 
         flex-direction: column !important; 
         text-align: center; 
@@ -1213,52 +1196,34 @@ footer p a:hover {
         margin-bottom: 20px; 
     }
     
-    /* --- Page Contact (Le correctif) --- */
+    /* Page Contact : Harmonisation et suppression des marges excessives */
     .contact-layout { 
-        display: flex !important; /* On passe en flex pour plus de sécurité sur mobile */
+        display: flex !important;
         flex-direction: column !important;
-        grid-template-columns: 1fr !important; /* Sécurité pour le grid */
-        gap: 20px !important;
+        gap: 25px !important;
         padding: 0 15px !important; 
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
     .contact-image-wrapper { 
-        order: -1; /* L'image passe au dessus */
+        order: -1; 
         width: 100% !important;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin-bottom: 10px !important;
-    }
-
-    .contact-image-wrapper img {
-        width: 100% !important;
-        height: auto !important;
-        border-radius: 12px;
+        padding: 15px !important; /* Ajout d'un padding interne pour le cadre blanc */
+        box-sizing: border-box !important;
     }
 
     .contact-info-map { 
         width: 100% !important;
-        padding: 0 !important;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centre le texte et la carte */
+        padding: 15px !important;
+        box-sizing: border-box !important;
     }
 
-    /* Force la carte à ne pas dépasser */
-    .contact-info-map iframe {
-        width: 100% !important;
-        height: 300px !important;
-        border-radius: 12px;
-    }
-    
-    /* --- Grille Atelier --- */
+    /* Grille Atelier */
     .atelier-images-grid { 
         display: flex !important;
         flex-direction: column !important;
-        max-width: 100%; 
-        height: auto; 
+        height: auto !important; 
         gap: 15px;
     }
     .atelier-img-large { 
@@ -1267,57 +1232,42 @@ footer p a:hover {
     }
 }
 
-/* --- PORTRAIT MOBILE (Correction Alignement Global) --- */
+/* --- PORTRAIT MOBILE (Smartphones) --- */
 @media (max-width: 768px) {
-    header {
-        padding: 10px 0 !important;
-        width: 100% !important;
-    }
-
     header .container { 
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important; /* RECENTRAGE pour éviter le flottement à gauche */
-        padding: 0 15px !important;
+        align-items: center !important; 
+        padding: 15px !important;
         width: 100% !important;
         box-sizing: border-box !important;
     }
 
-    /* Signature Logo + Texte recentrée */
+    /* Signature Logo + Texte */
     .logo-and-text-wrapper {
         display: flex !important;
-        flex-direction: row !important;
         justify-content: center !important; 
         align-items: center !important;
         gap: 12px !important;
-        width: 100% !important;
-        margin: 0 0 15px 0 !important;
+        margin-bottom: 20px !important;
     }
 
-    .logo { width: 55px !important; height: auto !important; flex-shrink: 0; }
-    .logo-text-header { text-align: left !important; }
-    .logo-title { font-size: 1.05rem !important; margin: 0 !important; }
-    .logo-slogan-line { font-size: 0.65rem !important; }
-    .separator { margin: 4px 0 !important; width: 35px !important; }
+    .logo { width: 55px !important; height: auto !important; }
+    .logo-title { font-size: 1.1rem !important; }
+    .logo-slogan-line { font-size: 0.7rem !important; }
+    .separator { margin: 5px 0 !important; width: 35px !important; }
 
-    /* MENU : Grille propre à 2 colonnes */
-    nav {
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
+    /* Menu Navigation en Grille */
+    nav { width: 100% !important; padding: 0 !important; }
     nav ul { 
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 10px !important;
-        padding: 0 !important;
-        margin: 0 !important;
+        gap: 8px !important;
         width: 100% !important;
-        list-style: none !important;
+        padding: 0 !important;
     }
 
-    /* Centrage du bouton Contact sur ses 2 colonnes */
+    /* Bouton Contact centré en bas */
     nav li:last-child {
         grid-column: span 2 !important;
         display: flex !important;
@@ -1325,94 +1275,57 @@ footer p a:hover {
     }
 
     nav a { 
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
         width: 100% !important;
-        min-width: 0 !important; /* Supprime le débordement à droite */
+        min-width: 0 !important; /* Important : casse le blocage PC */
         padding: 12px 5px !important;
         font-size: 0.8rem !important;
-        box-sizing: border-box !important;
-        border-radius: 6px !important;
     }
 
-    nav li:last-child a {
-        max-width: 180px !important; /* Évite que le bouton contact soit trop étiré */
-    }
+    nav li:last-child a { max-width: 180px !important; }
 
+    /* Ajustements Contenu Mobile */
     section { padding: 30px 0; }
+    .contact-info-map p:first-of-type { padding: 15px !important; font-size: 0.9rem; }
+    .tailles-wrapper { flex-direction: column; gap: 20px; }
+    .taille-image { max-width: 280px; width: 100%; }
 }
 
 /* --- MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
-    header .container { padding: 5px 15px !important; }
-    .logo-and-text-wrapper { margin-bottom: 8px !important; }
-    
-    nav ul {
-        grid-template-columns: repeat(3, 1fr) !important; /* 3 colonnes pour sauver de la place */
-    }
+    header .container { padding: 8px 15px !important; }
+    .logo-and-text-wrapper { margin-bottom: 10px !important; }
+    nav ul { grid-template-columns: repeat(3, 1fr) !important; }
     nav li:last-child { grid-column: span 1 !important; }
     nav a { padding: 8px 5px !important; font-size: 0.75rem !important; }
 }
 
-/* Blocage définitif du scroll horizontal parasite */
+/* --- SÉCURITÉ GLOBALE --- */
 html, body {
     max-width: 100% !important;
     overflow-x: hidden !important;
     position: relative;
 }
 
-/* --- RESTE DU CODE (Bougies & Accueil) --- */
-
+/* --- BOUDIES & ACCUEIL --- */
 .bougies-wrapper-seo {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    text-align: center;
 }
 
 .tarifs-image {
     max-width: 100%;
     height: auto; 
-    margin: 0 auto;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
-.tailles-wrapper {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    align-items: center;
-}
-
-/* Ajustement mobile pour les images de tailles */
-@media (max-width: 768px) {
-    .tailles-wrapper {
-        flex-direction: column;
-    }
-    .taille-image {
-        max-width: 280px;
-    }
-}
-
-.taille-image {
-    width: 100%; 
-    max-width: 240px; 
-    height: auto; 
-    border-radius: 12px;
-    transition: all 0.5s ease;
-}
-
-.section-image-accueil { text-align: center; margin-bottom: 30px; }
+.section-image-accueil { text-align: center; padding: 0 15px; }
 .section-image-accueil img {
     max-width: 600px; 
     width: 100%; 
     height: auto;
     border-radius: 8px;
-    display: block; 
-    margin: 0 auto;
 }
 
 /* ============================================== */
