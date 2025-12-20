@@ -1314,100 +1314,68 @@ footer p a:hover {
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
+/* --- PORTRAIT MOBILE (Ta grille 2 colonnes actuelle) --- */
 @media (max-width: 768px) {
     header .container { 
         flex-direction: column; 
-        padding: 5px 0;
-        align-items: center;
-        width: 100% !important;
-    }
-    
-    /* --- RÉPARATION NAVIGATION MOBILE --- */
-    nav { 
-        width: 100% !important; 
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    nav ul { 
-        /* On annule la grille ici pour mieux contrôler le centrage paysage */
-        display: flex !important;
-        flex-direction: column !important; 
-        gap: 8px !important;
-        padding: 0 !important; 
-        margin: 0 auto !important; 
-        list-style: none;
-        width: 100% !important;
-        align-items: center !important; 
+        padding: 10px 0;
+        width: 100%;
     }
 
-    nav li {
-        width: 100% !important;
-        text-align: center !important;
-        padding: 0 !important;
-        margin: 0 !important;
+    nav {
+        width: 100%;
+        margin: 0;
     }
+
+    nav ul { 
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 10px !important;
+        /* RÉPARATION DU TIRAGE À DROITE : */
+        padding: 0 15px !important; 
+        margin: 0 !important; 
+        width: 100% !important;
+        left: 0 !important;
+    }
+
+    nav li:last-child { grid-column: span 2 !important; }
 
     nav a { 
-        display: inline-block !important;
-        min-width: 160px !important; /* Largeur fixe pour que tous les boutons soient identiques */
-        padding: 10px !important; 
-        margin: 0 auto !important;
-        font-size: 0.9rem !important;
+        min-width: 0 !important; /* Annule le 120px qui pousse les bords */
+        width: 100% !important;
+        padding: 10px 5px !important;
+        font-size: 0.85rem !important;
     }
 
-    /* --- LOGO ET TEXTE --- */
-    .logo-and-text-wrapper { 
-        flex-direction: column; 
-        align-items: center; 
-        margin-bottom: 10px; 
-    }
-    
-    .logo { width: 75px !important; height: auto !important; margin: 0 auto; }
-    .logo-title { font-size: 1.2rem !important; }
-
+    .logo { width: 80px; height: auto; }
     .tailles-wrapper { flex-direction: column; }
     section { padding: 30px 0; }
-    h2 { font-size: 1.6em; }
 }
 
 /* --- CORRECTIF SPÉCIFIQUE PAYSAGE (Le téléphone couché) --- */
-@media (max-width: 950px) and (orientation: landscape) {
+/* On cible uniquement quand la hauteur est petite pour ne pas gêner le portrait */
+@media (max-width: 950px) and (max-height: 500px) {
     header { padding: 5px 0 !important; }
     
     header .container {
-        flex-direction: row !important; /* Logo à gauche, menu à droite */
-        justify-content: space-around !important;
         gap: 10px !important;
-    }
-
-    .logo-and-text-wrapper { 
-        flex-direction: row !important; 
-        margin: 0 !important;
     }
 
     .logo { width: 50px !important; }
-    .separator, .logo-slogan-line { display: none; } /* On cache le slogan pour gagner de la place */
+    .logo-text-header { display: none; } /* Cache le texte pour laisser la place au menu */
 
-    nav { 
-        width: auto !important; 
-        max-height: 120px; /* Petit scroll interne si trop de boutons */
+    nav {
+        max-height: 160px; /* Force le menu à tenir dans la frame */
         overflow-y: auto;
     }
 
-    nav ul { 
-        flex-direction: row !important; /* Boutons côte à côte */
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 10px !important;
-        width: auto !important;
+    nav ul {
+        grid-template-columns: 1fr 1fr 1fr !important; /* Passe en 3 colonnes pour gagner de la hauteur */
     }
 
-    nav a { 
-        min-width: 100px !important; 
-        padding: 5px 10px !important; 
-        font-size: 0.8rem !important;
-    }
+    nav li:last-child { grid-column: auto !important; }
+    
+    section { padding: 15px 0 !important; }
 }
 
 @media (max-width: 480px) {
