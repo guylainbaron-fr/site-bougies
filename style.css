@@ -1220,94 +1220,86 @@ footer p a:hover {
     .atelier-img-large { grid-row: auto; height: 300px; }
 }
 
-/* --- PORTRAIT MOBILE (Correction Alignement & Centrage) --- */
+/* --- PORTRAIT MOBILE --- */
 @media (max-width: 768px) {
-    /* Alignement parfait du container avec les bords */
-    header .container { 
-        flex-direction: column !important; 
-        padding: 15px !important; 
-        width: 100% !important;
-        box-sizing: border-box !important;
-        align-items: center !important;
+    
+    header {
+        padding: 10px 0 !important;
     }
 
-    /* Signature côte à côte préservée et centrée */
+    header .container { 
+        display: block !important; /* On casse le flex qui centre mal */
+        padding: 0 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Signature Logo + Texte : On les aligne à gauche pour coller à la grille */
     .logo-and-text-wrapper {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center !important;
         align-items: center !important;
+        justify-content: flex-start !important; /* Aligné à gauche */
         gap: 15px !important;
         width: 100% !important;
         margin-bottom: 20px !important;
     }
 
-    .logo { 
-        width: 60px !important; 
-        height: auto !important; 
-        flex-shrink: 0;
-    }
-
-    .logo-text-header { text-align: left !important; }
-    .logo-title { font-size: 1.1rem !important; margin: 0 !important; }
+    .logo { width: 55px !important; height: auto !important; }
+    .logo-title { font-size: 1.1rem !important; }
     .logo-slogan-line { font-size: 0.7rem !important; }
-    .separator { margin: 5px 0 !important; width: 40px !important; }
 
-    /* Menu Grille : Suppression du décalage à droite */
+    /* LE MENU : On force la grille à occuper 100% sans marges */
     nav {
         width: 100% !important;
-        margin: 0 !important;
         padding: 0 !important;
+        margin: 0 !important;
     }
 
     nav ul { 
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: 10px !important;
-        padding: 0 !important; 
+        padding: 0 !important;
         margin: 0 !important;
         width: 100% !important;
         list-style: none !important;
     }
 
-    /* Centrage du bouton Contact */
+    /* Centrage parfait du dernier bouton */
     nav li:last-child {
         grid-column: 1 / span 2 !important;
         display: flex !important;
         justify-content: center !important;
-        width: 100% !important;
     }
 
     nav a { 
         display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         width: 100% !important;
         padding: 12px 5px !important;
         font-size: 0.85rem !important;
-        min-width: 0 !important; /* Annule le 120px de la section 03 */
+        min-width: 0 !important; /* Force l'annulation du 120px */
         box-sizing: border-box !important;
     }
 
     nav li:last-child a {
-        max-width: 180px; /* Taille fixe pour le bouton seul */
+        width: 180px !important; /* Taille fixe pour le bouton contact */
     }
-
-    section { padding: 30px 0; }
 }
 
-/* --- CORRECTIF MOBILE PAYSAGE (Landscape) --- */
+/* --- MOBILE PAYSAGE --- */
 @media (max-width: 950px) and (orientation: landscape) {
-    header .container { padding: 10px 15px !important; }
-    
-    .logo { width: 50px !important; }
-    .logo-title { font-size: 1rem !important; }
     .logo-and-text-wrapper { margin-bottom: 10px !important; }
-
+    
     nav ul {
         grid-template-columns: 1fr 1fr 1fr !important;
-        gap: 8px !important;
     }
 
-    nav li:last-child { grid-column: span 1 !important; }
+    nav li:last-child {
+        grid-column: span 1 !important;
+    }
 
     nav a {
         padding: 8px 5px !important;
@@ -1315,12 +1307,10 @@ footer p a:hover {
     }
 }
 
-/* Empêche le rebond ou décalage latéral global */
+/* Verrouillage anti-débordement */
 html, body {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden !important;
+    width: 100% !important;
 }
 
 /* --- RESTE DU CODE (Bougies & Accueil) --- */
