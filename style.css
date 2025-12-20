@@ -105,31 +105,38 @@ p {
     margin: 0 auto;
 }
 
-/* ============================================== */
-/* 03. EN-TÊTE ET NAVIGATION (HEADER & NAV) */
-/* ============================================== */
+/* ============================================================
+   03. EN-TÊTE ET NAVIGATION (HEADER & NAV) 
+   ============================================================ */
 
 header {
     background-color: var(--couleur-fond-clair);
     width: 100%; 
     padding: 20px 0;
     border-bottom: 1px solid var(--couleur-texte-sombre); 
+    box-sizing: border-box;
 }
 
 header .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px; /* Un peu plus d'espace entre le logo et le menu */
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
 /* --- CONTENEUR LOGO + TEXTE --- */
 .logo-and-text-wrapper {
     display: flex;
-    align-items: center; /* Aligne le logo verticalement au milieu du texte */
+    align-items: center; 
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: nowrap; /* Empêche le logo de sauter à la ligne sur de petits écrans */
     gap: 25px; 
+    width: 100%;
 }
 
 .logo-image-left {
@@ -137,7 +144,6 @@ header .container {
     align-items: center;
 }
 
-/* Suppression des marges par défaut du h1 pour un alignement propre */
 .logo-image-left h1 {
     margin: 0;
     line-height: 0;
@@ -145,7 +151,7 @@ header .container {
 
 .logo {
     aspect-ratio: 1 / 1;
-    height: 90px; /* Légèrement agrandi pour équilibrer les 3 lignes de texte */
+    height: 90px;
     width: auto;
     object-fit: contain;
 }
@@ -158,7 +164,7 @@ header .container {
 }
 
 .logo-title {
-    font-size: 1.7rem; /* Plus élégant */
+    font-size: 1.7rem;
     font-weight: 800;
     color: var(--couleur-texte-sombre);
     margin: 0;
@@ -167,7 +173,6 @@ header .container {
     text-transform: uppercase;
 }
 
-/* La ligne de séparation marron */
 .separator {
     width: 50px;
     height: 3px;
@@ -177,7 +182,7 @@ header .container {
 }
 
 .logo-slogan-line {
-    font-size: 0.85rem; /* Plus petit pour laisser la priorité au nom */
+    font-size: 0.85rem;
     color: var(--couleur-texte-sombre);
     margin: 2px 0;
     text-transform: uppercase;
@@ -185,35 +190,12 @@ header .container {
     line-height: 1.2;
 }
 
-/* Optionnel : mettre la dernière ligne en marron pour rappeler les bougies */
 .logo-slogan-line:last-child {
     color: var(--couleur-primaire);
     font-weight: 600;
 }
 
-/* --- ADAPTATION MOBILE --- */
-@media (max-width: 768px) {
-    .logo-and-text-wrapper {
-        flex-direction: column; /* Empile logo et texte */
-        text-align: center;
-        gap: 15px;
-    }
-
-    .logo-text-header {
-        text-align: center;
-        align-items: center; /* Centre la barre séparatrice aussi */
-    }
-
-    .logo-title {
-        font-size: 1.4rem;
-    }
-}
-
-/* ============================================================
-   NAVIGATION FINALE : PC (Ligne), TABLETTE (4+3), MOBILE (Compact)
-   ============================================================ */
-
-/* --- STRUCTURE GÉNÉRALE --- */
+/* --- NAVIGATION FINALE : PC (Ligne) --- */
 nav {
     width: 100%;
     display: flex;
@@ -224,7 +206,7 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: nowrap; /* PC : Garde tout sur une seule ligne */
+    flex-wrap: nowrap; 
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -233,7 +215,6 @@ nav ul {
     width: 100%;
 }
 
-/* --- BOUTONS (ÉTAT NORMAL) --- */
 nav a {
     text-decoration: none;
     color: var(--couleur-texte-sombre);
@@ -241,7 +222,7 @@ nav a {
     padding: 10px 20px;
     border: 1px solid #ddd;
     border-radius: 6px;
-    display: inline-flex;
+    display: flex; /* Remplacé inline-flex pour un meilleur contrôle */
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -254,20 +235,19 @@ nav a {
     white-space: nowrap;
 }
 
-/* --- EFFET DE TRACÉ (OUVERTURE CENTRALE) --- */
+/* --- EFFET DE TRACÉ --- */
 nav a::after {
     content: '';
     position: absolute;
     top: -1px; left: -1px; right: -1px; bottom: -1px;
-    border: 2.5px solid var(--couleur-primaire); /* Bordure épaisse et nette */
+    border: 2.5px solid var(--couleur-primaire);
     border-radius: 6px;
-    clip-path: inset(0 50% 0 50%); /* Départ au milieu */
+    clip-path: inset(0 50% 0 50%);
     transition: clip-path 0.6s cubic-bezier(0.25, 1, 0.5, 1);
     pointer-events: none;
     z-index: 2;
 }
 
-/* --- INTERACTIONS --- */
 nav a:hover {
     color: var(--couleur-primaire);
     border-color: transparent;
@@ -275,87 +255,13 @@ nav a:hover {
 }
 
 nav a:hover::after {
-    clip-path: inset(0 0 0 0); /* Ouverture complète au survol */
+    clip-path: inset(0 0 0 0);
 }
 
-/* --- PAGE ACTIVE (Identique partout) --- */
 nav a.active {
     background-color: var(--couleur-primaire) !important;
     color: #FFFFFF !important;
     border: 1px solid var(--couleur-primaire) !important;
-    border-radius: 6px !important;
-    transform: none;
-}
-
-/* ============================================================
-   VERSION TABLETTE (Symétrie 4 boutons en haut, 3 en bas)
-   ============================================================ */
-@media (min-width: 769px) and (max-width: 1100px) {
-    nav ul {
-        flex-wrap: wrap !important;
-        max-width: 800px; /* Empêche l'étirement excessif */
-        gap: 15px;
-    }
-
-    nav li {
-        /* Calcule 4 colonnes sur la ligne */
-        flex: 0 0 calc(25% - 15px); 
-        display: flex;
-        justify-content: center;
-    }
-
-    nav a {
-        width: 100%; /* Les boutons remplissent leur case de grille */
-        min-width: 0;
-    }
-}
-
-/* ============================================================
-   VERSION MOBILE (GRILLE RENFORCÉE & TRAIT ÉPAIS)
-   ============================================================ */
-@media (max-width: 768px) {
-    nav {
-        padding: 15px 0 !important;
-    }
-
-    nav ul {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; 
-        gap: 10px !important; /* Un peu plus d'espace entre les blocs pour l'élégance */
-        padding: 0 15px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-    nav li:last-child {
-        grid-column: span 2 !important;
-    }
-
-    nav a {
-        display: flex !important;
-        width: 100% !important; 
-        min-height: 45px; /* On donne une hauteur stable aux blocs */
-        padding: 10px 5px !important;
-        font-size: 0.85rem !important;
-        border-radius: 8px !important; /* Un arrondi légèrement plus marqué pour adoucir l'effet bloc */
-        border: 1px solid #ddd;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    /* RENFORCEMENT DU TRAIT SUR MOBILE */
-    nav a::after {
-        /* On passe à 3.5px pour qu'il soit bien "Wahou" même sur petit écran */
-        border: 3.5px solid var(--couleur-primaire) !important; 
-        border-radius: 8px !important;
-        transition: clip-path 0.7s cubic-bezier(0.25, 1, 0.5, 1) !important;
-    }
-    
-    /* On s'assure que le bouton actif a aussi cette bordure épaisse */
-    nav a.active {
-        border: 3.5px solid var(--couleur-primaire) !important;
-        background-color: var(--couleur-primaire) !important;
-    }
 }
 
 /* ============================================== */
@@ -1316,76 +1222,73 @@ footer p a:hover {
 
 /* --- PORTRAIT MOBILE (Correction Alignement & Centrage) --- */
 @media (max-width: 768px) {
-    /* ÉTAPE 1 : On définit une marge commune de 15px pour TOUT le header */
+    /* Alignement parfait du container avec les bords */
     header .container { 
-        flex-direction: column; 
-        padding: 15px 15px !important; /* Aligne logo et menu sur la même bordure */
+        flex-direction: column !important; 
+        padding: 15px !important; 
         width: 100% !important;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
+        align-items: center !important;
     }
 
-    /* ÉTAPE 2 : Signature côte à côte préservée */
+    /* Signature côte à côte préservée et centrée */
     .logo-and-text-wrapper {
         display: flex !important;
         flex-direction: row !important;
-        justify-content: center;
-        align-items: center;
-        gap: 12px;
-        width: 100%;
-        margin-bottom: 15px;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+        margin-bottom: 20px !important;
     }
 
     .logo { 
-        width: 55px !important; 
+        width: 60px !important; 
         height: auto !important; 
         flex-shrink: 0;
     }
 
-    .logo-text-header {
-        text-align: left;
-    }
+    .logo-text-header { text-align: left !important; }
+    .logo-title { font-size: 1.1rem !important; margin: 0 !important; }
+    .logo-slogan-line { font-size: 0.7rem !important; }
+    .separator { margin: 5px 0 !important; width: 40px !important; }
 
-    .logo-title { font-size: 1.05rem !important; margin: 0; }
-    .logo-slogan-line { font-size: 0.65rem !important; white-space: nowrap; }
-    .separator { margin: 4px 0 !important; width: 30px !important; }
-
-    /* ÉTAPE 3 : Menu Grille parfaitement calé */
+    /* Menu Grille : Suppression du décalage à droite */
     nav {
         width: 100% !important;
         margin: 0 !important;
+        padding: 0 !important;
     }
 
     nav ul { 
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* 2 colonnes */
+        grid-template-columns: 1fr 1fr !important;
         gap: 10px !important;
-        padding: 0 !important; /* Le padding est déjà géré par le container */
+        padding: 0 !important; 
         margin: 0 !important;
         width: 100% !important;
-        list-style: none;
-        box-sizing: border-box;
+        list-style: none !important;
     }
 
-    /* ÉTAPE 4 : Centrage du bouton Contact seul en bas */
+    /* Centrage du bouton Contact */
     nav li:last-child {
         grid-column: 1 / span 2 !important;
         display: flex !important;
         justify-content: center !important;
+        width: 100% !important;
     }
 
     nav a { 
         display: flex !important;
-        justify-content: center;
-        align-items: center;
         width: 100% !important;
-        padding: 10px 5px !important;
-        font-size: 0.8rem !important;
-        min-width: 0 !important;
-        box-sizing: border-box;
+        padding: 12px 5px !important;
+        font-size: 0.85rem !important;
+        min-width: 0 !important; /* Annule le 120px de la section 03 */
+        box-sizing: border-box !important;
     }
 
     nav li:last-child a {
-        max-width: 160px; /* Largeur élégante pour le bouton seul */
+        max-width: 180px; /* Taille fixe pour le bouton seul */
     }
 
     section { padding: 30px 0; }
@@ -1393,29 +1296,31 @@ footer p a:hover {
 
 /* --- CORRECTIF MOBILE PAYSAGE (Landscape) --- */
 @media (max-width: 950px) and (orientation: landscape) {
-    header .container { padding: 8px 15px !important; }
+    header .container { padding: 10px 15px !important; }
     
-    .logo { width: 45px !important; }
-    .logo-title { font-size: 0.95rem !important; }
+    .logo { width: 50px !important; }
+    .logo-title { font-size: 1rem !important; }
+    .logo-and-text-wrapper { margin-bottom: 10px !important; }
 
     nav ul {
-        grid-template-columns: 1fr 1fr 1fr !important; /* 3 colonnes pour libérer de la hauteur */
+        grid-template-columns: 1fr 1fr 1fr !important;
         gap: 8px !important;
     }
 
     nav li:last-child { grid-column: span 1 !important; }
 
     nav a {
-        padding: 6px 10px !important;
+        padding: 8px 5px !important;
         font-size: 0.75rem !important;
     }
-    
-    /* Empêche tout mouvement latéral de l'écran */
-    body { overflow-x: hidden !important; }
 }
 
-@media (max-width: 480px) {
-    .contact-info-map p:first-of-type { padding: 15px; font-size: 0.95rem; }
+/* Empêche le rebond ou décalage latéral global */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /* --- RESTE DU CODE (Bougies & Accueil) --- */
