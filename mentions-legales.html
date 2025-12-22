@@ -53,84 +53,6 @@
 
     <meta name="theme-color" content="#ffffff">
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "logo": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://jf-aniuta.vercel.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jean-François et Aniuta",
-  "url": "https://jf-aniuta.vercel.app/",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ],
-  "jobTitle": "Fondateurs de JF & A"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "telephone": "+33658909835",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Chasseradès",
-    "postalCode": "48250",
-    "addressRegion": "Occitanie",
-    "addressCountry": "FR"
-  },
-  "containedInPlace": {
-    "@type": "Place",
-    "name": "Mont Lozère et Goulet"
-  },
-  "areaServed": "France",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ]
-}
-</script>
-
 </head>
 <body>
 
@@ -304,6 +226,57 @@
         insertEmail('email-1');
         insertEmail('email-2');
     });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jf-aniuta.vercel.app/#organization",
+      "name": "JF & A",
+      "url": "https://jf-aniuta.vercel.app/",
+      "logo": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chasseradès",
+        "postalCode": "48250",
+        "addressRegion": "Occitanie",
+        "addressCountry": "FR"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
+        "https://www.instagram.com/jean_francois_aniuta/",
+        "https://www.tiktok.com/@jeanfrancoisbaron2",
+        "https://wa.me/33658909835"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://jf-aniuta.vercel.app/mentions-legales.html#webpage",
+      "url": "https://jf-aniuta.vercel.app/mentions-legales.html",
+      "name": "Mentions Légales - JF & A",
+      "isPartOf": { "@id": "https://jf-aniuta.vercel.app/#website" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://jf-aniuta.vercel.app/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mentions Légales"
+          }
+        ]
+      }
+    }
+  ]
+}
 </script>
 
 </body>

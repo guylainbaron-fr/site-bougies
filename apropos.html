@@ -21,16 +21,23 @@
     
     <meta name="description" content="Découvrez l'histoire de Jean François et Aniuta, artisans passionnés du bois et de la bougie. Notre engagement : un savoir-faire unique et le respect des matériaux naturels en Lozère.">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="style.css"></noscript>
-    
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    
+<link rel="preload" href="style.css" as="style">
+<link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+
+<link rel="preload" href="fa/css/brands.min.css" as="style">
+<link rel="stylesheet" href="fa/css/brands.min.css" media="print" onload="this.media='all'">
+
+<noscript>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="fa/css/brands.min.css">
+</noscript>
     
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -45,84 +52,6 @@
     <link rel="apple-touch-icon" href="/images/logo_512x512_white.png">
 
     <meta name="theme-color" content="#ffffff">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "logo": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ]
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://jf-aniuta.vercel.app/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Jean-François et Aniuta",
-  "url": "https://jf-aniuta.vercel.app/",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ],
-  "jobTitle": "Fondateurs de JF & A"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "JF & A",
-  "url": "https://jf-aniuta.vercel.app/",
-  "telephone": "+33658909835",
-  "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Chasseradès",
-    "postalCode": "48250",
-    "addressRegion": "Occitanie",
-    "addressCountry": "FR"
-  },
-  "containedInPlace": {
-    "@type": "Place",
-    "name": "Mont Lozère et Goulet"
-  },
-  "areaServed": "France",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
-    "https://www.instagram.com/jean_francois_aniuta/",
-    "https://www.tiktok.com/@jeanfrancoisbaron2",
-    "https://wa.me/33658909835"
-  ]
-}
-</script>
 
 </head>
 <body>
@@ -286,5 +215,40 @@
     }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://jf-aniuta.vercel.app/#localbusiness",
+      "name": "JF & A",
+      "url": "https://jf-aniuta.vercel.app/",
+      "telephone": "+33658909835",
+      "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Chasseradès",
+        "postalCode": "48250",
+        "addressRegion": "Occitanie",
+        "addressCountry": "FR"
+      },
+      "description": "Atelier artisanal de créations uniques par Jean-François et Aniuta."
+    },
+    {
+      "@type": "Person",
+      "name": "Jean-François et Aniuta",
+      "jobTitle": "Artisans Créateurs",
+      "worksFor": { "@id": "https://jf-aniuta.vercel.app/#localbusiness" },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
+        "https://www.instagram.com/jean_francois_aniuta/",
+        "https://www.tiktok.com/@jeanfrancoisbaron2",
+        "https://wa.me/33658909835"
+      ]
+    }
+  ]
+}
+</script>
 </body>
 </html>
