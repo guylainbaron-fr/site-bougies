@@ -1209,155 +1209,188 @@ footer p a:hover {
 /* --- 1. TABLETTES ET GRANDS MOBILES (PAYSAGE) --- */
 @media (max-width: 992px) {
     .article-wrapper { 
-        flex-direction: column; 
+        flex-direction: column !important; 
         text-align: center; 
         padding: 0 15px; 
     }
     .article-image, .article-text-summary { 
-        width: 100%; 
+        width: 100% !important; 
         margin-bottom: 20px; 
     }
     
     .contact-layout { 
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        padding: 0 15px; 
-        width: 100%;
-        box-sizing: border-box;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 25px !important;
+        padding: 0 15px !important; 
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .contact-image-wrapper { 
         order: -1; 
-        width: 100%;
-        padding: 15px;
-        box-sizing: border-box;
+        width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
     }
 
     .contact-info-map { 
-        width: 100%;
-        padding: 15px;
-        box-sizing: border-box;
+        width: 100% !important;
+        padding: 15px !important;
+        box-sizing: border-box !important;
     }
 
     .atelier-images-grid { 
-        display: flex;
-        flex-direction: column;
-        height: auto; 
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important; 
         gap: 15px;
     }
     .atelier-img-large { 
-        height: 300px; 
-        width: 100%;
+        height: 300px !important; 
+        width: 100% !important;
     }
 }
 
 /* --- 2. PORTRAIT MOBILE (SMARTPHONES) --- */
 @media (max-width: 768px) {
     header .container { 
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        padding: 15px;
-        width: 100%;
-        box-sizing: border-box;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; 
+        padding: 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     .logo-and-text-wrapper {
-        display: flex;
-        justify-content: center; 
-        align-items: center;
-        gap: 12px;
-        margin-bottom: 20px;
+        display: flex !important;
+        justify-content: center !important; 
+        align-items: center !important;
+        gap: 12px !important;
+        margin-bottom: 20px !important;
     }
 
-    .logo { width: 55px; height: auto; }
-    .logo-title { font-size: 1.1rem; }
-    .logo-slogan-line { font-size: 0.7rem; }
-    .separator { margin: 5px 0; width: 35px; }
+    .logo { width: 55px !important; height: auto !important; }
+    .logo-title { font-size: 1.1rem !important; }
+    .logo-slogan-line { font-size: 0.7rem !important; }
+    .separator { margin: 5px 0 !important; width: 35px !important; }
 
-    /* Navigation Mobile : Optimisée pour le CLS */
-    nav { width: 100%; padding: 0; }
+    /* Navigation Mobile : Stabilité et suppression des effets de tracé buggés */
+    nav { width: 100% !important; padding: 0 !important; }
     nav ul { 
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 8px;
-        width: 100%;
-        padding: 0;
-        list-style: none;
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 8px !important;
+        width: 100% !important;
+        padding: 0 !important;
     }
 
     nav li:last-child {
-        grid-column: span 2;
-        display: flex;
-        justify-content: center;
+        grid-column: span 2 !important;
+        display: flex !important;
+        justify-content: center !important;
     }
 
     nav a { 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-        min-height: 44px; /* Taille cible tactile recommandée par Google */
-        padding: 10px 5px;
-        font-size: 0.8rem;
-        box-sizing: border-box;
-        border: 1px solid #ddd;
-        border-radius: 4px; /* Un peu d'arrondi pour le look */
-        transition: background-color 0.3s ease, color 0.3s ease;
-        background-color: #fff;
+        width: 100% !important;
+        min-width: 0 !important;
+        padding: 12px 5px !important;
+        font-size: 0.8rem !important;
+        box-sizing: border-box !important;
+        /* Désactivation de l'effet de tracé animé sur mobile */
+        border: 1px solid #ddd !important;
+        transition: background-color 0.3s ease !important;
     }
 
     nav a::after {
-        display: none !important; /* Suppression radicale de l'animation de trait */
+        display: none !important; /* Supprime le trait qui se dessine mal au doigt */
     }
 
     nav a.active {
-        background-color: var(--couleur-primaire);
-        color: #FFFFFF;
-        border-color: var(--couleur-primaire);
+        background-color: var(--couleur-primaire) !important;
+        color: #FFFFFF !important;
+        border-color: var(--couleur-primaire) !important;
     }
 
-    /* Désactivation des effets lourds pour la performance */
-    .contact-image, .article-image, .taille-image, .tarifs-image, .section-image-accueil img {
+    /* Correction Images : Annule les filtres sépia/zoom sur mobile */
+    .contact-image, .article-image, .taille-image, .tarifs-image {
         filter: none !important; 
         transform: none !important;
         transition: none !important;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
     }
 
+    /* Ajustements Contenu */
     section { padding: 30px 0; }
-    .contact-info-map p:first-of-type { padding: 15px; font-size: 0.9rem; }
-    .tailles-wrapper { 
-        display: flex;
-        flex-direction: column; 
-        align-items: center;
-        gap: 20px; 
-    }
+    .contact-info-map p:first-of-type { padding: 15px !important; font-size: 0.9rem; }
+    .tailles-wrapper { flex-direction: column; gap: 20px; }
+    .taille-image { max-width: 280px; width: 100%; }
 }
 
 /* --- 3. MOBILE PAYSAGE (LANDSCAPE) --- */
 @media (max-width: 950px) and (orientation: landscape) {
+    header .container { 
+        padding: 8px 15px !important; 
+    }
+    
+    .logo-and-text-wrapper { 
+        margin-bottom: 10px !important; 
+    }
+    
     nav ul { 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 6px; 
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important; 
+        gap: 6px !important;
+        width: 100% !important;
     }
 
     nav li:last-child { 
-        grid-column: span 1; 
+        grid-column: span 1 !important; 
+        display: block !important;     
+        width: 100% !important;
     }
 
     nav a { 
-        min-height: 40px;
-        font-size: 0.75rem; 
+        padding: 8px 4px !important; 
+        font-size: 0.75rem !important; 
+        min-height: 40px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        
+        /* DESACTIVATION DE L'EFFET DE TRACÉ (comme en portrait) */
+        border: 1px solid #ddd !important;
+        transition: background-color 0.3s ease !important;
+    }
+
+    /* SUPPRESSION DU TRAIT ANIMÉ */
+    nav a::after {
+        display: none !important;
+    }
+
+    /* STYLE ACTIF POUR LE PAYSAGE */
+    nav a.active {
+        background-color: var(--couleur-primaire) !important;
+        color: #FFFFFF !important;
+        border-color: var(--couleur-primaire) !important;
     }
 }
 
-/* --- 4. SÉCURITÉ ANTI-SCROLL HORIZONTAL --- */
+/* Sécurité : Désactive aussi les effets images en paysage entre 768px et 950px */
+    .contact-image, .article-image, .taille-image, .tarifs-image {
+        filter: none !important; 
+        transform: none !important;
+        transition: none !important;
+    }
+
+/* --- 4. SÉCURITÉ ET BLOCAGE SCROLL HORIZONTAL --- */
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
     position: relative;
     width: 100%;
 }
@@ -1368,27 +1401,21 @@ html, body {
     flex-direction: column;
     align-items: center;
     gap: 30px;
-    width: 100%;
 }
 
 .tarifs-image {
     max-width: 100%;
     height: auto; 
     border-radius: 12px;
-    display: block;
-    margin: 0 auto;
 }
 
-.section-image-accueil { 
-    text-align: center; 
-    padding: 0 15px; 
-    width: 100%;
-}
+.section-image-accueil { text-align: center; padding: 0 15px; }
 .section-image-accueil img {
     max-width: 600px; 
     width: 100%; 
     height: auto;
     border-radius: 8px;
+    margin: 0 auto;
 }
 
 /* ============================================== */
