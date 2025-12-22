@@ -195,16 +195,16 @@
         container.addEventListener('mousemove', (e) => {
             const rect = container.getBoundingClientRect();
             
-            // Calcul ultra-précis de la position de la souris
+            // Calcul de la position relative en pourcentage (0 à 100%)
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
             
-            // On déplace le point central du zoom instantanément
+            // Applique le point de focus de la loupe
             img.style.transformOrigin = `${x}% ${y}%`;
         });
 
         container.addEventListener('mouseleave', () => {
-            // Retour fluide au centre quand la souris sort
+            // L'image se recentre doucement quand on quitte la zone
             img.style.transformOrigin = 'center center';
         });
     }
