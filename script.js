@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-// --- 2. PROTECTION EMAIL (ANTI-SPAM) ---
+    // --- 2. PROTECTION EMAIL (ANTI-SPAM) ---
     const emailContainer = document.getElementById('email-protected');
     if (emailContainer) {
         const user = 'jeanfrancoisbaron';
@@ -17,8 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
         link.href = `mailto:${address}`;
         link.textContent = address;
 
-        // --- CORRECTION ICI ---
-        // On vide le texte "[Activer JavaScript...]" avant d'ajouter le lien
         emailContainer.innerHTML = ''; 
         emailContainer.appendChild(link);
     }
@@ -27,23 +25,32 @@ document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.article-image-container');
     const img = document.querySelector('.article-image');
 
-    if (container && img) {
+    // Détection améliorée pour ton Pixel 9 : on vérifie le tactile ET la précision du pointeur
+    const isTouchDevice = 'ontouchstart' in window || 
+                          navigator.maxTouchPoints > 0 || 
+                          window.matchMedia("(pointer: coarse)").matches;
+
+    if (container && img && !isTouchDevice) {
         container.addEventListener('mousemove', (e) => {
             const rect = container.getBoundingClientRect();
             
-            // Calcul précis de la position de la souris en % dans l'image
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
             
-            // Le point de focus suit la souris et l'image grandit
             img.style.transformOrigin = `${x}% ${y}%`;
             img.style.transform = 'scale(2.5)';
         });
 
         container.addEventListener('mouseleave', () => {
-            // L'image reprend sa place et sa taille initiale doucement
             img.style.transformOrigin = 'center center';
             img.style.transform = 'scale(1)';
         });
+    } else if (img) {
+        // Pour mobile : on s'assure que l'image reste statique
+        img.style.transform = 'scale(1)';
+        img.style.transformOrigin = 'center center';
+        // On libère l'image pour que le zoom natif "pincé de doigts" fonctionne
+        img.style.pointerEvents = 'auto'; 
     }
+
 });
