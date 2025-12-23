@@ -21,15 +21,15 @@
     
     <meta name="description" content="Vous avez une question sur nos sculptures ou nos bougies ? Contactez-nous par téléphone, e-mail, ou visitez notre atelier à Chasseradès (48). Nous vous répondons rapidement.">
     
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preload" href="images/logo-entreprise.webp" as="image">
+    <link rel="preload" href="images/logo-entreprise.webp" as="image">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="fa/css/brands.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fa/css/brands.min.css">
     
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -118,7 +118,7 @@
                 <p>
     <strong>Jean François & Aniuta BARON</strong> <br>
     <i class="fas fa-phone-alt"></i> Tél : <a href="tel:+33658909835">06 58 90 98 35</a> <br>
-    <i class="fas fa-envelope"></i> Email : <span id="email-protected"></span> <br>
+    <i class="fas fa-envelope"></i> Email : <span id="email-protected">[Activer JavaScript pour voir l'email]</span> <br>
     <i class="fas fa-map-marker-alt"></i> Atelier : Chasseradès 48250 Mont Lozère et Goulet
 </p>
 
@@ -166,30 +166,10 @@
         </div>
         
         <p>
-            &copy; 2026 Jean François & Aniuta. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a> 
+            &copy; <span id="current-year">2025</span> Jean François & Aniuta. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a> 
         </p>
     </div>
 </footer>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Séparer l'adresse en parties non lisibles par les spambots
-        var user = 'jeanfrancoisbaron';
-        var domain = 'laposte.net';
-        var address = user + '@' + domain;
-        
-        // Créer l'élément de lien cliquable
-        var link = document.createElement('a');
-        link.href = 'mailto:' + address;
-        link.textContent = address;
-        
-        // Trouver le conteneur et insérer le lien
-        var container = document.getElementById('email-protected');
-        if (container) {
-            container.appendChild(link);
-        }
-    });
-</script>
 
 <script type="application/ld+json">
 {
@@ -234,6 +214,8 @@
   ]
 }
 </script>
+
+<script src="/script.js" defer></script>
 
 </body>
 </html>

@@ -21,15 +21,15 @@
     
     <meta name="description" content="Découvrez l'histoire de Jean François et Aniuta, artisans passionnés du bois et de la bougie. Notre engagement : un savoir-faire unique et le respect des matériaux naturels en Lozère.">
     
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preload" href="images/logo-entreprise.webp" as="image">
+    <link rel="preload" href="images/logo-entreprise.webp" as="image">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="fa/css/brands.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fa/css/brands.min.css">
     
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
@@ -182,33 +182,10 @@
         </div>
         
         <p>
-            &copy; 2026 Jean François & Aniuta. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a> 
+            &copy; <span id="current-year">2025</span> Jean François & Aniuta. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales</a> 
         </p>
     </div>
 </footer>
-
-<script>
-    const container = document.querySelector('.article-image-container');
-    const img = document.querySelector('.article-image');
-
-    if (container && img) {
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
-            
-            // Calcul de la position relative en pourcentage (0 à 100%)
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            
-            // Applique le point de focus de la loupe
-            img.style.transformOrigin = `${x}% ${y}%`;
-        });
-
-        container.addEventListener('mouseleave', () => {
-            // L'image se recentre doucement quand on quitte la zone
-            img.style.transformOrigin = 'center center';
-        });
-    }
-</script>
 
 <script type="application/ld+json">
 {
@@ -245,5 +222,8 @@
   ]
 }
 </script>
+
+<script src="/script.js" defer></script>
+
 </body>
 </html>
