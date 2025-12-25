@@ -3,32 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page non trouvée | Jean François & ANIUTA</title>
+    <title>Oups ! Page perdue | Jean François & ANIUTA</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="fa/css/brands.min.css">
 
     <style>
-        /* RESET & BASE */
+        /* --- RESET & BASE --- */
         * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; }
-        :root { --vert-artisan: #4a5d23; }
+        :root { --vert-artisan: #4a5d23; --marron-artisan: #3d2b1f; }
         
         html, body { 
-            /* Utilisation du dvh pour s'adapter aux barres de navigation mobiles */
             min-height: 100vh;
-            min-height: 100dvh; 
-            background-color: #ffffff; 
+            background-color: #fdfaf7; 
             color: #333; 
             font-family: 'Poppins', sans-serif; 
         }
+        body { display: flex; flex-direction: column; }
 
-        body { 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between; 
+        /* --- LE BANDEAU DE NOËL (Version Beige & Glow Bronze) --- */
+        .holiday-bar {
+            background-color: #fdfaf7; /* Ton beige rosé */
+            color: var(--marron-artisan);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            padding: 8px 10px;
+            width: 100%;
+            border-bottom: 1px solid rgba(61, 43, 31, 0.1);
+            z-index: 1000;
         }
 
-        /* --- CONTENU PRINCIPAL --- */
+        .holiday-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* L'effet GLOW Bronze adapté au beige */
+        .holiday-bar.glow .holiday-text {
+            background: linear-gradient(
+                to right, 
+                #3d2b1f 20%, 
+                #b8860b 50%, /* Bronze doré */
+                #3d2b1f 80%
+            );
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine-right 8s linear infinite;
+        }
+
+        .snow-group { display: flex; gap: 8px; opacity: 0.5; }
+        
+        .snowflake-css {
+            width: 1px; height: 10px; background: var(--marron-artisan); position: relative;
+            animation: rotate-snow 10s infinite linear;
+        }
+        .snowflake-css::before, .snowflake-css::after {
+            content: ""; position: absolute; width: 1px; height: 10px; background: var(--marron-artisan); top: 0; left: 0;
+        }
+        .snowflake-css::before { transform: rotate(60deg); }
+        .snowflake-css::after { transform: rotate(120deg); }
+
+        @keyframes rotate-snow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes shine-right { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+
+        /* --- CONTENU 404 --- */
         main { 
             flex: 1; 
             display: flex; 
@@ -39,106 +84,87 @@
             padding: 40px 20px; 
         }
 
-        /* Animation Scie */
-        .scie-box { position: relative; width: 80px; height: 80px; margin-bottom: 30px; }
-        .scie-dentelle { 
-            width: 100%; height: 100%; 
-            border: 7px dashed var(--vert-artisan); 
-            border-radius: 50%; 
-            animation: rotation 5s linear infinite; 
-        }
-        .scie-centre { 
-            position: absolute; top: 50%; left: 50%; 
-            width: 15px; height: 15px; 
-            background-color: var(--vert-artisan); 
-            border-radius: 50%; 
-            transform: translate(-50%, -50%); 
+        .candle-error { font-size: 5rem; margin-bottom: 20px; filter: grayscale(1); opacity: 0.6; }
+
+        h1 { font-size: clamp(4rem, 15vw, 7rem); color: #eee; position: relative; line-height: 0.8; }
+        h1::after {
+            content: "404";
+            position: absolute;
+            top: 0; left: 50%;
+            transform: translateX(-50%);
+            color: var(--marron-artisan);
+            clip-path: inset(50% 0 0 0);
         }
 
-        h1 { font-size: clamp(3.5rem, 10vw, 5rem); color: var(--vert-artisan); line-height: 1; }
-        h2 { font-size: 1.4rem; margin: 10px 0 15px; color: #333; }
-        p { max-width: 450px; color: #666; margin-bottom: 25px; line-height: 1.4; font-size: 0.95rem; }
+        h2 { font-size: 1.6rem; margin: 20px 0 10px; color: var(--marron-artisan); }
+        .joke { font-style: italic; color: #888; margin-bottom: 25px; font-size: 0.9rem; }
+        p { max-width: 500px; color: #666; margin-bottom: 30px; line-height: 1.5; }
 
         .btn-retour { 
-            padding: 14px 30px; 
-            background-color: var(--vert-artisan); 
+            padding: 15px 35px; 
+            background-color: var(--marron-artisan); 
             color: #ffffff !important; 
-            border-radius: 6px; 
+            border-radius: 50px; 
             font-weight: 600; 
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(61, 43, 31, 0.2);
         }
+        .btn-retour:hover { transform: scale(1.05); }
 
-        /* --- PIED DE PAGE --- */
-        footer { 
-            /* Augmentation du padding pour éviter la zone de navigation mobile */
-            padding-bottom: 40px; 
-            padding-top: 20px;
-            text-align: center; 
-            background-color: #ffffff !important; 
-        }
-
-        .social-links { margin-bottom: 25px; }
-
+        footer { padding: 30px 0 50px; text-align: center; }
         .social-links a { 
-            margin: 0 8px; 
-            color: var(--vert-artisan) !important; 
-            font-size: 1.1rem; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            width: 42px; 
-            height: 42px; 
-            background: transparent !important; 
-            border: 1px solid #ddd !important; 
-            border-radius: 50% !important; 
+            margin: 0 10px; color: var(--marron-artisan) !important; font-size: 1.2rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 45px; height: 45px; border: 1px solid #eee; border-radius: 50%;
         }
 
-        .footer-text { font-size: 0.85rem; color: var(--vert-artisan); margin: 4px 0; display: block; }
-        .legal-link { color: var(--vert-artisan) !important; text-decoration: underline; font-weight: 600; }
-
-        @keyframes rotation { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        
-        /* Ajustements spécifiques pour petits écrans */
-        @media (max-width: 480px) {
-            main { padding-top: 60px; }
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 1.2rem; }
-            footer { padding-bottom: 60px; } /* Encore plus d'espace sur petit mobile */
+        @media (max-width: 768px) {
+            .holiday-text { font-size: 0.65rem; white-space: normal; line-height: 1.2; max-width: 65%; }
+            .snowflake-css:nth-child(2), .snowflake-css:nth-child(3) { display: none; }
         }
     </style>
 </head>
 <body>
 
+<div class="holiday-bar glow" role="alert" aria-label="Page non trouvée - Message d'aide de Noël">
+    <div class="snow-group" aria-hidden="true">
+        <div class="snowflake-css"></div>
+        <div class="snowflake-css"></div>
+        <div class="snowflake-css"></div>
+    </div>
+
+    <span class="holiday-text">
+        Même nos <strong>lutins</strong> se sont perdus... Joyeuses Fêtes !
+    </span>
+
+    <div class="snow-group" aria-hidden="true">
+        <div class="snowflake-css"></div>
+        <div class="snowflake-css"></div>
+        <div class="snowflake-css"></div>
+    </div>
+</div>
+
     <main>
-        <div class="scie-box">
-            <div class="scie-dentelle"></div>
-            <div class="scie-centre"></div>
-        </div>
+        <div class="candle-error">🕯️</div>
         <h1>404</h1>
-        <h2>Oups ! Un détour imprévu...</h2>
-        <p>Il semble que vous ayez pris un sentier qui n'existe plus. Pas d'inquiétude, l'atelier est juste ici.</p>
-        <a href="index.html" class="btn-retour">Retourner à l'Accueil</a>
+        <h2>Quelqu'un a soufflé la bougie !</h2>
+        <p class="joke">"C'est l'histoire d'une page qui partait en vacances de Noël... et qui n'est jamais revenue."</p>
+        <p>Il semblerait que vous cherchiez un parfum qui n'existe pas encore. Suivez l'odeur de la cire chaude pour retrouver le chemin de l'atelier.</p>
+        <a href="index.html" class="btn-retour">Rallumer la lumière (Accueil)</a>
     </main>
 
     <footer>
         <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/jean_francois_aniuta/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/33658909835" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.tiktok.com/@jeanfrancoisbaron2" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
         </div>
-        
-        <span class="footer-text">
-            &copy; <span id="year"></span> Jean François & Aniuta. Tous droits réservés.
-        </span>
-        
-        <span class="footer-text">
-            <a href="mentions-legales.html" class="legal-link">Mentions Légales</a>
+        <span class="footer-text" style="color:#888; font-size: 0.8rem; display: block; margin-top: 15px;">
+            &copy; <span id="year"></span> Jean François & Aniuta. Tout est sous contrôle (ou presque).
         </span>
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
