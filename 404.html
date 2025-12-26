@@ -25,7 +25,6 @@
             display: flex; 
             flex-direction: column;
             overflow-x: hidden;
-            /* Scroll activé par défaut pour le mobile */
             overflow-y: auto; 
         }
 
@@ -33,7 +32,7 @@
         @media (min-width: 1025px) {
             body { 
                 height: 100vh;
-                overflow-y: hidden; /* Empêche le scroll sur grand écran */
+                overflow-y: hidden; 
             }
         }
 
@@ -69,19 +68,39 @@
             animation: shine-right 8s linear infinite;
         }
 
-        .snow-group { display: flex; gap: 8px; opacity: 0.5; }
+        /* --- FLOCONS AVEC SCINTILLEMENT --- */
+        .snow-group { display: flex; gap: 8px; opacity: 0.7; }
+        
         .snowflake-css {
-            width: 1px; height: 10px; background: var(--marron-artisan); position: relative;
-            animation: rotate-snow 10s infinite linear;
+            width: 1px; 
+            height: 10px; 
+            background: var(--marron-artisan); 
+            position: relative;
+            animation: rotate-snow 10s infinite linear, twinkle 3s infinite ease-in-out;
         }
+
+        /* Décalage pour un effet naturel */
+        .snowflake-css:nth-child(2) { animation-delay: 0.5s, 1.2s; animation-duration: 10s, 4.5s; }
+        .snowflake-css:nth-child(3) { animation-delay: 1s, 0.2s; animation-duration: 10s, 2.5s; }
+
         .snowflake-css::before, .snowflake-css::after {
-            content: ""; position: absolute; width: 1px; height: 10px; background: var(--marron-artisan); top: 0; left: 0;
+            content: ""; position: absolute; width: 1px; height: 10px; background: inherit; top: 0; left: 0;
         }
         .snowflake-css::before { transform: rotate(60deg); }
         .snowflake-css::after { transform: rotate(120deg); }
 
+        /* --- ANIMATIONS --- */
         @keyframes rotate-snow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes shine-right { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
+        
+        @keyframes shine-right {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
 
         /* --- CONTENU CENTRAL --- */
         main { 
@@ -92,7 +111,7 @@
             align-items: center; 
             text-align: center; 
             padding: 20px; 
-            min-height: 350px; /* Sécurité pour ne pas écraser le contenu */
+            min-height: 350px; 
         }
 
         .candle-error { font-size: 4rem; margin-bottom: 15px; filter: grayscale(1); opacity: 0.6; }
@@ -142,7 +161,7 @@
             main { 
                 padding-top: 40px; 
                 padding-bottom: 40px;
-                justify-content: flex-start; /* Évite de trop tasser en haut sur petit écran */
+                justify-content: flex-start;
             }
             
             .candle-error { font-size: 3.5rem; margin-top: 20px; }
