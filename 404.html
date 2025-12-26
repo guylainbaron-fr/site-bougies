@@ -14,16 +14,28 @@
         :root { --vert-artisan: #4a5d23; --marron-artisan: #3d2b1f; }
         
         html, body { 
-            min-height: 100vh;
+            height: 100%; 
             background-color: #fdfaf7; 
             color: #333; 
             font-family: 'Poppins', sans-serif; 
         }
-        body { display: flex; flex-direction: column; }
 
-        /* --- LE BANDEAU DE NOËL (Version Beige & Glow Bronze) --- */
+        body { 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+            min-height: 100dvh;
+            overflow-x: hidden;
+        }
+
+        /* --- EMPÊCHE LE SCROLL SUR PC --- */
+        @media (min-width: 769px) {
+            body { overflow-y: hidden; }
+        }
+
+        /* --- LE BANDEAU DE NOËL --- */
         .holiday-bar {
-            background-color: #fdfaf7; /* Ton beige rosé */
+            background-color: #fdfaf7;
             color: var(--marron-artisan);
             display: flex;
             justify-content: center;
@@ -33,6 +45,7 @@
             width: 100%;
             border-bottom: 1px solid rgba(61, 43, 31, 0.1);
             z-index: 1000;
+            flex-shrink: 0;
         }
 
         .holiday-text {
@@ -43,14 +56,8 @@
             text-align: center;
         }
 
-        /* L'effet GLOW Bronze adapté au beige */
         .holiday-bar.glow .holiday-text {
-            background: linear-gradient(
-                to right, 
-                #3d2b1f 20%, 
-                #b8860b 50%, /* Bronze doré */
-                #3d2b1f 80%
-            );
+            background: linear-gradient(to right, #3d2b1f 20%, #b8860b 50%, #3d2b1f 80%);
             background-size: 200% auto;
             background-clip: text;
             -webkit-background-clip: text;
@@ -59,7 +66,6 @@
         }
 
         .snow-group { display: flex; gap: 8px; opacity: 0.5; }
-        
         .snowflake-css {
             width: 1px; height: 10px; background: var(--marron-artisan); position: relative;
             animation: rotate-snow 10s infinite linear;
@@ -73,7 +79,7 @@
         @keyframes rotate-snow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
         @keyframes shine-right { 0% { background-position: 200% center; } 100% { background-position: -200% center; } }
 
-        /* --- CONTENU 404 --- */
+        /* --- CONTENU CENTRAL --- */
         main { 
             flex: 1; 
             display: flex; 
@@ -81,12 +87,12 @@
             justify-content: center; 
             align-items: center; 
             text-align: center; 
-            padding: 40px 20px; 
+            padding: 10px 20px; /* Réduit pour gagner de la place */
         }
 
-        .candle-error { font-size: 5rem; margin-bottom: 20px; filter: grayscale(1); opacity: 0.6; }
+        .candle-error { font-size: 4rem; margin-bottom: 10px; filter: grayscale(1); opacity: 0.6; }
 
-        h1 { font-size: clamp(4rem, 15vw, 7rem); color: #eee; position: relative; line-height: 0.8; }
+        h1 { font-size: clamp(3.5rem, 12vw, 6rem); color: #eee; position: relative; line-height: 0.8; }
         h1::after {
             content: "404";
             position: absolute;
@@ -96,29 +102,38 @@
             clip-path: inset(50% 0 0 0);
         }
 
-        h2 { font-size: 1.6rem; margin: 20px 0 10px; color: var(--marron-artisan); }
-        .joke { font-style: italic; color: #888; margin-bottom: 25px; font-size: 0.9rem; }
-        p { max-width: 500px; color: #666; margin-bottom: 30px; line-height: 1.5; }
+        h2 { font-size: 1.4rem; margin: 15px 0 10px; color: var(--marron-artisan); }
+        .joke { font-style: italic; color: #888; margin-bottom: 15px; font-size: 0.85rem; }
+        p { max-width: 500px; color: #666; margin-bottom: 20px; line-height: 1.4; font-size: 0.95rem; }
 
         .btn-retour { 
-            padding: 15px 35px; 
+            padding: 12px 30px; 
             background-color: var(--marron-artisan); 
             color: #ffffff !important; 
             border-radius: 50px; 
             font-weight: 600; 
             transition: transform 0.3s ease;
             box-shadow: 0 4px 15px rgba(61, 43, 31, 0.2);
+            font-size: 0.9rem;
         }
         .btn-retour:hover { transform: scale(1.05); }
 
-        footer { padding: 30px 0 50px; text-align: center; }
+        /* --- FOOTER --- */
+        footer { 
+            padding: 10px 0 30px; 
+            text-align: center; 
+            flex-shrink: 0; 
+        }
         .social-links a { 
-            margin: 0 10px; color: var(--marron-artisan) !important; font-size: 1.2rem;
+            margin: 0 8px; color: var(--marron-artisan) !important; font-size: 1.1rem;
             display: inline-flex; align-items: center; justify-content: center;
-            width: 45px; height: 45px; border: 1px solid #eee; border-radius: 50%;
+            width: 40px; height: 40px; border: 1px solid #eee; border-radius: 50%;
         }
 
+        /* --- MOBILE --- */
         @media (max-width: 768px) {
+            body { height: auto; display: block; overflow-y: auto; } 
+            main { min-height: 65vh; padding-top: 50px; padding-bottom: 30px; }
             .holiday-text { font-size: 0.65rem; white-space: normal; line-height: 1.2; max-width: 65%; }
             .snowflake-css:nth-child(2), .snowflake-css:nth-child(3) { display: none; }
         }
@@ -132,11 +147,9 @@
         <div class="snowflake-css"></div>
         <div class="snowflake-css"></div>
     </div>
-
     <span class="holiday-text">
         Même nos <strong>lutins</strong> se sont perdus... Joyeuses Fêtes !
     </span>
-
     <div class="snow-group" aria-hidden="true">
         <div class="snowflake-css"></div>
         <div class="snowflake-css"></div>
@@ -144,27 +157,28 @@
     </div>
 </div>
 
-    <main>
-        <div class="candle-error">🕯️</div>
-        <h1>404</h1>
-        <h2>Quelqu'un a soufflé la bougie !</h2>
-        <p class="joke">"C'est l'histoire d'une page qui partait en vacances de Noël... et qui n'est jamais revenue."</p>
-        <p>Il semblerait que vous cherchiez un parfum qui n'existe pas encore. Suivez l'odeur de la cire chaude pour retrouver le chemin de l'atelier.</p>
-        <a href="index.html" class="btn-retour">Rallumer la lumière (Accueil)</a>
-    </main>
+<main>
+    <div class="candle-error">🕯️</div>
+    <h1>404</h1>
+    <h2>Quelqu'un a soufflé la bougie !</h2>
+    <p class="joke">"C'est l'histoire d'une page qui partait en vacances de Noël... et qui n'est jamais revenue."</p>
+    <p>Il semblerait que vous cherchiez un parfum qui n'existe pas encore. Suivez l'odeur de la cire chaude pour retrouver le chemin de l'atelier.</p>
+    <a href="index.html" class="btn-retour">Rallumer la lumière (Accueil)</a>
+</main>
 
-    <footer>
-        <div class="social-links">
-            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <span class="footer-text" style="color:#888; font-size: 0.8rem; display: block; margin-top: 15px;">
-            &copy; <span id="year"></span> Jean François & Aniuta. Tout est sous contrôle (ou presque).
-        </span>
-    </footer>
+<footer>
+    <div class="social-links">
+        <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <span class="footer-text" style="color:#888; font-size: 0.75rem; display: block; margin-top: 10px;">
+        &copy; <span id="year"></span> Jean François & Aniuta. Tout est sous contrôle (ou presque).
+    </span>
+</footer>
 
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
 </body>
 </html>
