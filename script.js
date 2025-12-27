@@ -21,34 +21,40 @@ document.addEventListener("DOMContentLoaded", function() {
         emailContainer.appendChild(link);
     }
 
-// --- 3. LOUPE INTERACTIVE (ARTICLE PRESSE) ---
-const container = document.querySelector('.article-image-container');
-const img = document.querySelector('.article-image');
+    // --- 3. LOUPE INTERACTIVE (ARTICLE PRESSE) ---
+    const container = document.querySelector('.article-image-container');
+    const img = document.querySelector('.article-image');
 
-// Détection stricte d'un appareil tactile (Pixel 9, iPhone, Tablette)
-const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // Détection stricte d'un appareil tactile (Pixel 9, iPhone, Tablette)
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-if (container && img && !isTouchDevice) {
-    // Ce code ne s'exécutera JAMAIS sur ton Pixel 9
-    container.addEventListener('mousemove', (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        
-        img.style.transformOrigin = `${x}% ${y}%`;
-        img.style.transform = 'scale(2.5)';
-    });
+    if (container && img && !isTouchDevice) {
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            
+            img.style.transformOrigin = `${x}% ${y}%`;
+            img.style.transform = 'scale(2.5)';
+        });
 
-    container.addEventListener('mouseleave', () => {
-        img.style.transformOrigin = 'center center';
-        img.style.transform = 'scale(1)';
-    });
-} else if (img) {
-    // Sécurité Mobile : on s'assure que l'image est inerte
-    img.style.transform = 'none';
-    // On s'assure que le pointer-events n'est pas sur 'none' 
-    // pour ne pas gêner le défilement natif
-    img.style.pointerEvents = 'auto';
-}
+        container.addEventListener('mouseleave', () => {
+            img.style.transformOrigin = 'center center';
+            img.style.transform = 'scale(1)';
+        });
+    } else if (img) {
+        img.style.transform = 'none';
+        img.style.pointerEvents = 'auto';
+    }
 
 });
+
+// --- 4. ENREGISTREMENT DU SERVICE WORKER (PWA) ---
+// Placé à l'extérieur pour ne pas retarder le chargement visuel
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => console.log('PWA prête (SW enregistré)'))
+            .catch(err => console.log('Erreur PWA SW:', err));
+    });
+}
