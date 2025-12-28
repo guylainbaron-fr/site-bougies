@@ -58,3 +58,43 @@ if ('serviceWorker' in navigator) {
             .catch(err => console.log('Erreur PWA SW:', err));
     });
 }
+
+/* ==========================================================
+   GESTION DU FORMULAIRE NEWSLETTER (BREVO)
+   Empêche le rechargement et affiche un message de succès
+   ========================================================== */
+const newsletterForm = document.getElementById('sib-form');
+
+if (newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const btn = document.getElementById('sib-submit');
+        const successMsg = document.getElementById('sib-success');
+        
+        // 1. Verrouillage visuel du formulaire
+        form.style.opacity = '0.5';
+        form.style.pointerEvents = 'none';
+        btn.innerText = '...';
+
+        const formData = new FormData(form);
+
+        // 2. Envoi des données en arrière-plan
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' 
+        }).then(() => {
+            // 3. Succès : On remplace le formulaire par le message vert
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+        }).catch(() => {
+            // 4. Gestion d'erreur (problème réseau)
+            form.style.opacity = '1';
+            form.style.pointerEvents = 'auto';
+            btn.innerText = 'OK';
+            alert("Erreur lors de l'envoi. Veuillez réessayer.");
+        });
+    });
+}
