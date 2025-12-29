@@ -207,9 +207,13 @@
       "@type": "Product",
       "@id": "https://jf-aniuta.vercel.app/noel.html#product",
       "name": "Bougies Parfumées Vanille Gourmande",
-      "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
+      "image": "https://jf-aniuta.vercel.app/images/logo_144.png",
       "description": "Découvrez nos bougies artisanales de Noël parfumées à la vanille gourmande. Édition limitée pour les fêtes.",
-      "brand": { "@id": "https://jf-aniuta.vercel.app/#organization" },
+      "brand": {
+        "@type": "Brand",
+        "name": "Jean-François & Aniuta",
+        "@id": "https://jf-aniuta.vercel.app/#organization"
+      },
       "offers": {
         "@type": "Offer",
         "url": "https://wa.me/33658909835",
@@ -221,12 +225,15 @@
     {
       "@type": "LocalBusiness",
       "@id": "https://jf-aniuta.vercel.app/#localbusiness",
-      "name": "JF & A",
+      "name": "Jean-François & Aniuta",
+      "url": "https://jf-aniuta.vercel.app/",
       "telephone": "+33658909835",
+      "image": "https://jf-aniuta.vercel.app/images/logo_144.png",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Chasseradès",
         "postalCode": "48250",
+        "addressRegion": "Occitanie",
         "addressCountry": "FR"
       }
     },
@@ -234,7 +241,7 @@
       "@type": "WebPage",
       "@id": "https://jf-aniuta.vercel.app/noel.html#webpage",
       "url": "https://jf-aniuta.vercel.app/noel.html",
-      "name": "Sélection de Noël : Bougies Vanille Gourmande - JF & A",
+      "name": "Sélection de Noël : Bougies Vanille Gourmande - Jean-François & Aniuta",
       "description": "Présentation vidéo de nos bougies artisanales de Noël. Commandez directement via WhatsApp.",
       "mainEntity": { "@id": "https://jf-aniuta.vercel.app/noel.html#product" }
     }

@@ -34,7 +34,7 @@
     <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
 
     <link rel="icon" type="images/png" sizes="144x144" href="/images/logo_144.png">
-    
+
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon_16x16.png">
 
@@ -210,10 +210,15 @@
     {
       "@type": "Organization",
       "@id": "https://jf-aniuta.vercel.app/#organization",
-      "name": "JF & A",
+      "name": "Jean-François & Aniuta",
       "url": "https://jf-aniuta.vercel.app/",
-      "logo": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
-      "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://jf-aniuta.vercel.app/images/logo_144.png",
+        "width": 144,
+        "height": 144
+      },
+      "image": "https://jf-aniuta.vercel.app/images/logo_144.png",
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR",
         "https://www.instagram.com/jean_francois_aniuta/",
@@ -225,7 +230,7 @@
       "@type": "WebSite",
       "@id": "https://jf-aniuta.vercel.app/#website",
       "url": "https://jf-aniuta.vercel.app/",
-      "name": "JF & A - Créations Artisanales",
+      "name": "Jean-François & Aniuta - Créations Artisanales",
       "publisher": { "@id": "https://jf-aniuta.vercel.app/#organization" },
       "potentialAction": {
         "@type": "SearchAction",
@@ -235,21 +240,23 @@
     },
     {
       "@type": "LocalBusiness",
-      "name": "JF & A",
+      "name": "Jean-François & Aniuta",
       "@id": "https://jf-aniuta.vercel.app/#localbusiness",
       "url": "https://jf-aniuta.vercel.app/",
       "telephone": "+33658909835",
-      "image": "https://jf-aniuta.vercel.app/images/logo_512x512_white.png",
+      "image": "https://jf-aniuta.vercel.app/images/logo_144.png",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Chasseradès",
+        "streetAddress": "Chasseradès",
+        "addressLocality": "Mont Lozère et Goulet",
         "postalCode": "48250",
         "addressRegion": "Occitanie",
         "addressCountry": "FR"
       },
-      "containedInPlace": {
-        "@type": "Place",
-        "name": "Mont Lozère et Goulet"
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 44.5072,
+        "longitude": 3.8261
       },
       "areaServed": "France"
     },
