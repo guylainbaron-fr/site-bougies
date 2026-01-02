@@ -6,20 +6,25 @@ document.addEventListener("DOMContentLoaded", function() {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // --- 2. PROTECTION EMAIL (ANTI-SPAM) ---
-    const emailContainer = document.getElementById('email-protected');
-    if (emailContainer) {
-        const user = 'jeanfrancoisbaron';
-        const domain = 'laposte.net';
-        const address = `${user}@${domain}`;
-        
+// --- PROTECTION EMAIL UNIVERSELLE ---
+const emailIds = ['email-protected', 'email-1', 'email-2'];
+const user = 'jeanfrancoisbaron';
+const domain = 'laposte.net';
+const address = `${user}@${domain}`;
+
+emailIds.forEach(id => {
+    const container = document.getElementById(id);
+    if (container) {
         const link = document.createElement('a');
         link.href = `mailto:${address}`;
         link.textContent = address;
 
-        emailContainer.innerHTML = ''; 
-        emailContainer.appendChild(link);
+        // Cette ligne est cruciale : elle supprime "[Protection anti-robot activée]"
+        container.innerHTML = ''; 
+        
+        container.appendChild(link);
     }
+});
 
     // --- 3. LOUPE INTERACTIVE (ARTICLE PRESSE) ---
     const container = document.querySelector('.article-image-container');
