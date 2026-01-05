@@ -14,25 +14,27 @@ document.addEventListener("DOMContentLoaded", function() {
             const link = document.createElement('a');
             link.href = `mailto:${address}`;
             link.textContent = address;
+            // ON AJOUTE LA CLASSE ICI POUR L'ANIMATION VANILLE
+            link.classList.add('poetic-link'); 
             container.innerHTML = '';
             container.appendChild(link);
         }
     });
 
     // --- 3. LOUPE INTERACTIVE ---
-    const container = document.querySelector('.article-image-container');
+    const imgContainer = document.querySelector('.article-image-container');
     const img = document.querySelector('.article-image');
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    if (container && img && !isTouchDevice) {
-        container.addEventListener('mousemove', (e) => {
-            const rect = container.getBoundingClientRect();
+    if (imgContainer && img && !isTouchDevice) {
+        imgContainer.addEventListener('mousemove', (e) => {
+            const rect = imgContainer.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
             img.style.transformOrigin = `${x}% ${y}%`;
             img.style.transform = 'scale(2.5)';
         });
-        container.addEventListener('mouseleave', () => {
+        imgContainer.addEventListener('mouseleave', () => {
             img.style.transformOrigin = 'center center';
             img.style.transform = 'scale(1)';
         });
@@ -42,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const newsletterForm = document.getElementById('sib-form');
     const successMsg = document.getElementById('sib-success');
 
-    // On vérifie si l'utilisateur est déjà inscrit
     if (localStorage.getItem('newsletter_inscrit') === 'true') {
         if (newsletterForm) newsletterForm.style.display = 'none';
         if (successMsg) {
@@ -55,11 +56,8 @@ document.addEventListener("DOMContentLoaded", function() {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const form = this;
-
-            // --- SECURITE HONEYPOT (Anti-Spam) ---
             const hpField = form.querySelector('input[name*="hp"]');
             if (hpField && hpField.value !== "") {
-                // Robot détecté : on simule le succès sans rien envoyer
                 form.style.display = 'none';
                 if (successMsg) successMsg.style.display = 'block';
                 return;
@@ -75,7 +73,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 body: new FormData(form),
                 mode: 'no-cors' 
             }).then(() => {
-                // Succès réel : on mémorise et on cache le formulaire
                 localStorage.setItem('newsletter_inscrit', 'true');
                 form.style.display = 'none';
                 if (successMsg) successMsg.style.display = 'block';
@@ -88,9 +85,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-});
+    // --- 5. GESTION DU MENU ACTIF ---
+    const currentUrl = window.location.href;
+    const navLinks = document.querySelectorAll('.main-nav a');
 
-// --- 5. SERVICE WORKER ---
+    navLinks.forEach(link => {
+        const linkHref = link.getAttribute('href');
+        if (linkHref && linkHref !== "#") {
+            const cleanLink = linkHref.replace(".html", "");
+            if (currentUrl.includes(cleanLink)) {
+                link.classList.add('active');
+            }
+        }
+    });
+
+    const path = window.location.pathname;
+    if (path === "/" || path.endsWith("index.html") || path === "") {
+        const homeLink = document.querySelector('.main-nav a[href="index.html"]');
+        if (homeLink) homeLink.classList.add('active');
+    }
+
+    // --- 6. GESTION DES VIDÉOS (STOP MULTIPLE PLAY) ---
+    const allVideos = document.querySelectorAll('video');
+    allVideos.forEach(video => {
+        video.addEventListener('play', function() {
+            allVideos.forEach(otherVideo => {
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                }
+            });
+        });
+    });
+
+}); // FIN DU DOMCONTENTLOADED
+
+// --- 7. SERVICE WORKER ---
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));

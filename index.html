@@ -69,49 +69,42 @@
     </div>
 </div>
 
-<header>
-<div class="container">
-    
-    <div class="logo-and-text-wrapper">
+<header class="site-header">
+    <div class="container">
         
-        <div class="logo-image-left">
-            <h1>
-                <a href="index.html">
-                    <img 
-    src="images/logo-entreprise.webp" 
-    srcset="images/logo-entreprise-2x.webp 2x" 
-    alt="Logo J.F. BARON & ANIUTA - Artisanat" 
-    class="logo" 
-    width="88" 
-    height="88"
->
-                </a>
-            </h1>
-        </div>
-        
-        <div class="logo-text-header">
-            <p class="logo-title">JEAN FRANÇOIS & ANIUTA</p>
+        <div class="header-brand">
+            <div class="logo-box">
+                <img src="images/logo-entreprise.webp" alt="Logo" width="88" height="88">
+            </div>
             
-            <div class="separator"></div>
-
-            <p class="logo-slogan-line">SCULPTEURS ET DÉCORATEURS SUR BOIS</p>
-            <p class="logo-slogan-line">CRÉATEURS DE BOUGIES ARTISANALES PARFUMÉES</p>
+            <div class="brand-content poetic-identity">
+                <h1 class="site-title">Jean François & Aniuta</h1>
+                
+                <span class="poetic-divider"></span>
+                
+                <div class="brand-slogan">
+                    <p class="slogan-line">Sculpteurs et Décorateurs sur Bois</p>
+                    <p class="slogan-line">Créateurs de Bougies Artisanales Parfumées</p>
+                </div>
+            </div>
         </div>
-        
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="bougies.html">Les Bougies</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="atelier.html">L'Atelier</a></li>
+                <li><a href="apropos.html">À Propos</a></li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li><a href="avis.html">Livre d'Or</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
     </div>
-    <nav>
-        <ul>
-            <li><a href="index.html" class="active">Accueil</a></li>
-            <li><a href="bougies.html">Les Bougies</a></li>
-            <li><a href="evenements.html">Événements</a></li>
-            <li><a href="atelier.html">L'Atelier</a></li>
-            <li><a href="apropos.html">À Propos</a></li>
-            <li><a href="videos.html">Vidéos</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-</div>
 </header>
+
     <section id="hero">
     <img 
     src="images/hero-home-1435.webp" 
@@ -130,9 +123,9 @@
     sizes="100vw"
     >
     <div class="container">
-        <h2>L'Héritage Lozérien : Maîtres Sculpteurs et Créateurs de Bougies Artisanales.</h2> 
+        <h1>L'Héritage Lozérien : Maîtres Sculpteurs et Créateurs de Bougies Artisanales.</h1> 
         <p>Chaleur du bois sculpté, réconfort de la flamme parfumée. L'artisanat conçu pour enrichir votre intérieur.</p>
-        <a href="bougies.html" class="btn large-btn" title="Accéder à notre collection de bougies">Découvrir l'univers</a>
+        <a href="bougies.html" class="btn large-btn" title="Accéder à notre collection de bougies"> Découvrir l'univers</a>
     </div>
 </section>
 
@@ -177,7 +170,13 @@
     </section>
 </main>
 
-<footer>
+<div class="footer-divider">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 C480,0 960,0 1440,100 Z" fill="#4a3728"></path>
+    </svg>
+</div>
+
+<footer class="site-footer">
     <div class="container">
         <div class="social-links">
             <a href="https://www.facebook.com/profile.php?id=61550190415219&locale=fr_FR" target="_blank" aria-label="Lien vers la page Facebook de l'entreprise">
@@ -196,14 +195,14 @@
                 <i class="fab fa-tiktok"></i>
             </a>
 
-            <a href="https://g.page/r/Ccq2wwBX0aHgEBM/review" target="_blank" class="google-link" aria-label="Laisser un avis sur Google">
-                <i class="fab fa-google"></i>
+            <a href="https://maps.app.goo.gl/TY3NhqRHVrUwbWwp6" target="_blank" class="google-link" aria-label="Voir l'atelier sur Google Maps">
+                <i class="fab fa-google-plus-g"></i>
             </a>
+        </div>        
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year">2026</span> Jean François & Aniuta. Tous droits réservés.</p>
+            <a href="mentions-legales.html" class="legal-link" title="Consulter les Mentions Légales et Conditions Générales de Vente">Mentions Légales & CGV</a>
         </div>
-        
-        <p>
-            &copy; <span id="current-year">2026</span> Jean François & Aniuta. Tous droits réservés. | <a href="mentions-legales.html">Mentions Légales & CGV</a> 
-        </p>
     </div>
 </footer>
 
