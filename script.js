@@ -21,24 +21,28 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // --- 3. LOUPE INTERACTIVE ---
-    const imgContainer = document.querySelector('.article-image-container');
-    const img = document.querySelector('.article-image');
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+// --- 3. LOUPE INTERACTIVE (Souris uniquement) ---
+const imgContainer = document.querySelector('.article-image-container');
+const img = document.querySelector('.article-image');
 
-    if (imgContainer && img && !isTouchDevice) {
-        imgContainer.addEventListener('mousemove', (e) => {
-            const rect = imgContainer.getBoundingClientRect();
-            const x = ((e.clientX - rect.left) / rect.width) * 100;
-            const y = ((e.clientY - rect.top) / rect.height) * 100;
-            img.style.transformOrigin = `${x}% ${y}%`;
-            img.style.transform = 'scale(2.5)';
-        });
-        imgContainer.addEventListener('mouseleave', () => {
-            img.style.transformOrigin = 'center center';
-            img.style.transform = 'scale(1)';
-        });
-    }
+// Détection précise : on vérifie si l'utilisateur a une souris (pointer: fine)
+const hasMouse = window.matchMedia('(pointer: fine)').matches;
+
+if (imgContainer && img && hasMouse) {
+    imgContainer.addEventListener('mousemove', (e) => {
+        const rect = imgContainer.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        img.style.transformOrigin = `${x}% ${y}%`;
+        img.style.transform = 'scale(2.5)';
+        img.style.cursor = 'crosshair';
+    });
+    
+    imgContainer.addEventListener('mouseleave', () => {
+        img.style.transformOrigin = 'center center';
+        img.style.transform = 'scale(1)';
+    });
+}
 
     // --- 4. GESTION DU FORMULAIRE NEWSLETTER (BREVO) ---
     const newsletterForm = document.getElementById('sib-form');
